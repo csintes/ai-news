@@ -1,41 +1,1075 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benchmarks de IA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet" />
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benchmarks de IA - AI News</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafafa;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #000;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .logo-text h1 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+        
+        .nav-links a.active {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+        
+        /* Main */
+        .main {
+            padding: 80px 0;
+        }
+        
+        /* Hero */
+        .hero {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .last-update {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f0f9ff;
+            padding: 8px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            color: #0369a1;
+            border: 1px solid #e0f2fe;
+        }
+        
+        .pulse {
+            width: 6px;
+            height: 6px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Benchmark sections */
+        .benchmark-section {
+            margin-bottom: 80px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-size: 20px;
+        }
+        
+        .section-icon.math {
+            background: #f0f9ff;
+            color: #0369a1;
+        }
+        
+        .section-icon.coding {
+            background: #f3f4f6;
+            color: #374151;
+        }
+        
+        .section-icon.general {
+            background: #fdf2f8;
+            color: #be185d;
+        }
+        
+        .section-icon.multimodal {
+            background: #f0fdf4;
+            color: #166534;
+        }
+        
+        .section h2 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Benchmark cards */
+        .benchmark-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .benchmark-card {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s ease;
+        }
+        
+        .benchmark-card:hover {
+            border-color: #1a1a1a;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .benchmark-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        
+        .benchmark-card .description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .benchmark-results {
+            border-top: 1px solid #f5f5f5;
+            padding-top: 20px;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f9f9f9;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .model-name {
+            font-weight: 500;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+        
+        .model-score {
+            font-weight: 600;
+            color: #0369a1;
+            font-size: 14px;
+        }
+        
+        .winner {
+            background: #f0f9ff;
+            border-radius: 6px;
+            padding: 4px 8px;
+        }
+        
+        /* Chart container */
+        .chart-container {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .chart-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        /* Summary section */
+        .summary {
+            background: #1a1a1a;
+            color: white;
+            padding: 48px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 64px 0;
+        }
+        
+        .summary h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+        
+        .summary p {
+            font-size: 16px;
+            color: #999;
+            margin-bottom: 32px;
+        }
+        
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-top: 32px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #999;
+            margin-top: 4px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: white;
+            border-top: 1px solid #e5e5e5;
+            padding: 64px 0 32px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+        
+        .footer-section p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #1a1a1a;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #e5e5e5;
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .footer-bottom p {
+            color: #999;
+            font-size: 12px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .benchmark-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+            
+            .main {
+                padding: 48px 0;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-  <header class="bg-white shadow p-6">
-    <div class="container mx-auto">
-      <h1 class="text-3xl font-semibold mb-2">Benchmarks de IA</h1>
-      <p class="text-gray-600">Modelos con mejor puntuación en tareas recientes</p>
-    </div>
-  </header>
-  <main class="container mx-auto p-4">
-    <table class="min-w-full bg-white shadow rounded-lg overflow-hidden">
-      <thead class="bg-gray-100">
-        <tr>
-          <th class="p-3 text-left">Tarea</th>
-          <th class="p-3 text-left">Modelo líder</th>
-          <th class="p-3 text-left">Inferencia</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="border-b"><td class="p-3">Programación (SWE‑bench)</td><td class="p-3 font-semibold">Claude Opus 4</td><td class="p-3">Domina SWE‑bench con 72,5 %, destacando en reparación de código.</td></tr><tr class="border-b"><td class="p-3">Matemáticas (AIME 2025)</td><td class="p-3 font-semibold">DeepSeek R1</td><td class="p-3">Logra 93,3 % en AIME, demostrando razonamiento matemático superior.</td></tr><tr class="border-b"><td class="p-3">Geometría</td><td class="p-3 font-semibold">AlphaGeometry2</td><td class="p-3">Resuelve el 84 % de problemas de geometría del IMO.</td></tr><tr class="border-b"><td class="p-3">Razonamiento multimodal (GPQA Diamond)</td><td class="p-3 font-semibold">Gemini 2.5 Pro</td><td class="p-3">Encabeza GPQA con 86,4 % para razonamiento multimodal.</td></tr><tr class="border-b"><td class="p-3">Terminal‑bench</td><td class="p-3 font-semibold">Claude Opus 4</td><td class="p-3">Lidera Terminal‑bench con 43,2 % en tareas de terminal.</td></tr>
-      </tbody>
-    </table>
-    <div class="mt-6">
-      <a href="index.html" class="text-blue-600 underline">&larr; Volver al inicio</a>
-    </div>
-  </main>
-  <footer class="text-center text-sm text-gray-500 py-4">
-    Generado automáticamente el 25/07/2025.
-  </footer>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <div class="logo-icon">AI</div>
+                    <div class="logo-text">
+                        <h1>AI News</h1>
+                    </div>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="../index.html">Inicio</a>
+                    <a href="#" class="active">Benchmarks</a>
+                    <a href="#archivo">Archivo</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="hero">
+                <h1>Benchmarks de IA</h1>
+                <p>Evaluación comparativa de los modelos de inteligencia artificial más avanzados del mundo</p>
+                
+                <div class="last-update">
+                    <div class="pulse"></div>
+                    <span>Actualizado: 25 de julio, 2025</span>
+                </div>
+            </section>
+
+            <!-- Mathematics Section -->
+            <section class="benchmark-section">
+                <div class="section-header">
+                    <div class="section-icon math">🧮</div>
+                    <h2>Matemáticas y Razonamiento</h2>
+                </div>
+                
+                <div class="benchmark-grid">
+                    <div class="benchmark-card">
+                        <h3>AIME (AI Mathematical Evaluation)</h3>
+                        <p class="description">Problemas de matemáticas de nivel olimpiada que requieren razonamiento avanzado y creatividad matemática.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 Grok 4</span>
+                                <span class="model-score">90.6%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 Kimi K2</span>
+                                <span class="model-score">49.5%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Claude Opus 4</span>
+                                <span class="model-score">45.2%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>IMO 2025 (International Math Olympiad)</h3>
+                        <p class="description">Competencia matemática más prestigiosa para estudiantes de secundaria a nivel mundial.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 OpenAI o1</span>
+                                <span class="model-score">Medalla de Oro</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 DeepMind Alpha</span>
+                                <span class="model-score">Medalla de Plata</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Claude Opus 4</span>
+                                <span class="model-score">Medalla de Bronce</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>MATH Dataset</h3>
+                        <p class="description">Problemas matemáticos de competencia que requieren múltiples pasos de razonamiento.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 GPT-4o</span>
+                                <span class="model-score">88.4%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 Gemini 2.5 Pro</span>
+                                <span class="model-score">86.7%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Claude Opus 4</span>
+                                <span class="model-score">84.9%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>GPQA-Diamond</h3>
+                        <p class="description">Preguntas de ciencias de nivel graduado que requieren conocimiento experto.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 Kimi K2</span>
+                                <span class="model-score">75.1%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 GPT-4o</span>
+                                <span class="model-score">73.8%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Gemini 2.5 Pro</span>
+                                <span class="model-score">71.2%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">Rendimiento en Benchmarks Matemáticos</div>
+                    <canvas id="mathChart" width="400" height="200"></canvas>
+                </div>
+            </section>
+
+            <!-- Coding Section -->
+            <section class="benchmark-section">
+                <div class="section-header">
+                    <div class="section-icon coding">💻</div>
+                    <h2>Programación y Código</h2>
+                </div>
+                
+                <div class="benchmark-grid">
+                    <div class="benchmark-card">
+                        <h3>HumanEval</h3>
+                        <p class="description">Evaluación estándar de capacidades de programación con problemas de codificación práticos.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 Claude Opus 4</span>
+                                <span class="model-score">94.2%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 GPT-4o</span>
+                                <span class="model-score">91.8%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Qwen2.5-Coder</span>
+                                <span class="model-score">89.3%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>SWE-Bench Verified</h3>
+                        <p class="description">Problemas reales de ingeniería de software extraídos de repositorios de GitHub.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 Claude Code</span>
+                                <span class="model-score">75.0%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 GPT-4o</span>
+                                <span class="model-score">68.4%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 DeepSeek Coder</span>
+                                <span class="model-score">63.7%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>K-Bench (Nuevo)</h3>
+                        <p class="description">Benchmark extremadamente desafiante de codificación con $1M de premio para el primer modelo que supere 90%.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 Claude Opus 4</span>
+                                <span class="model-score">7.5%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 GPT-4o</span>
+                                <span class="model-score">6.8%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Gemini 2.5 Pro</span>
+                                <span class="model-score">5.9%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>LiveCodeBench</h3>
+                        <p class="description">Evaluación en tiempo real de capacidades de codificación con problemas actualizados.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 Claude Opus 4</span>
+                                <span class="model-score">82.6%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 GPT-4o</span>
+                                <span class="model-score">79.1%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Qwen2.5-Coder</span>
+                                <span class="model-score">76.4%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">Rendimiento en Benchmarks de Programación</div>
+                    <canvas id="codingChart" width="400" height="200"></canvas>
+                </div>
+            </section>
+
+            <!-- General Capabilities Section -->
+            <section class="benchmark-section">
+                <div class="section-header">
+                    <div class="section-icon general">🎯</div>
+                    <h2>Capacidades Generales</h2>
+                </div>
+                
+                <div class="benchmark-grid">
+                    <div class="benchmark-card">
+                        <h3>LMSYS Chatbot Arena</h3>
+                        <p class="description">Evaluación crowd-sourced con sistema Elo basada en preferencias humanas reales.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 Gemini 2.5 Pro</span>
+                                <span class="model-score">1,342 Elo</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 ChatGPT-4o-latest</span>
+                                <span class="model-score">1,338 Elo</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 o1-preview</span>
+                                <span class="model-score">1,335 Elo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>MT-Bench</h3>
+                        <p class="description">Framework unificado que evalúa conversaciones multi-turno usando LLM-as-a-judge.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 GPT-4o</span>
+                                <span class="model-score">8.97</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 Claude Opus 4</span>
+                                <span class="model-score">8.85</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Gemini 2.5 Pro</span>
+                                <span class="model-score">8.72</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>MMLU (Massive Multitask Language Understanding)</h3>
+                        <p class="description">El "examen SAT" para modelos de IA, evaluando conocimiento en 57 materias académicas.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 GPT-4o</span>
+                                <span class="model-score">88.7%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 Gemini 2.5 Pro</span>
+                                <span class="model-score">87.9%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Claude Opus 4</span>
+                                <span class="model-score">86.8%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>Big-Bench Hard (BBH)</h3>
+                        <p class="description">23 tareas más desafiantes que requieren razonamiento multi-paso y juicio causal.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 o1-preview</span>
+                                <span class="model-score">85.5%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 GPT-4o</span>
+                                <span class="model-score">83.1%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Gemini 2.5 Pro</span>
+                                <span class="model-score">81.9%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">Rendimiento en Benchmarks Generales</div>
+                    <canvas id="generalChart" width="400" height="200"></canvas>
+                </div>
+            </section>
+
+            <!-- Multimodal Section -->
+            <section class="benchmark-section">
+                <div class="section-header">
+                    <div class="section-icon multimodal">🎨</div>
+                    <h2>Capacidades Multimodales</h2>
+                </div>
+                
+                <div class="benchmark-grid">
+                    <div class="benchmark-card">
+                        <h3>MMMU (Massive Multi-discipline Multimodal Understanding)</h3>
+                        <p class="description">Evaluación de comprensión multimodal en múltiples disciplinas académicas.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 GPT-4o</span>
+                                <span class="model-score">69.1%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 Gemini 2.0 Flash</span>
+                                <span class="model-score">65.8%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Claude 3.5 Sonnet</span>
+                                <span class="model-score">64.2%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>MathVista</h3>
+                        <p class="description">Razonamiento matemático visual que combina comprensión de imágenes y matemáticas.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 GPT-4o</span>
+                                <span class="model-score">63.8%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 Gemini 2.0 Flash</span>
+                                <span class="model-score">61.2%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Claude 3.5 Sonnet</span>
+                                <span class="model-score">58.7%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>AI2D (AI2 Diagram Understanding)</h3>
+                        <p class="description">Comprensión de diagramas científicos y razonamiento visual.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 GPT-4o</span>
+                                <span class="model-score">84.6%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 Gemini 2.0 Flash</span>
+                                <span class="model-score">82.1%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Claude 3.5 Sonnet</span>
+                                <span class="model-score">80.3%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>ChartQA</h3>
+                        <p class="description">Comprensión y análisis de gráficos y visualizaciones de datos.</p>
+                        <div class="benchmark-results">
+                            <div class="result-item winner">
+                                <span class="model-name">🥇 GPT-4o</span>
+                                <span class="model-score">78.5%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥈 Gemini 2.0 Flash</span>
+                                <span class="model-score">76.9%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="model-name">🥉 Claude 3.5 Sonnet</span>
+                                <span class="model-score">74.2%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">Rendimiento en Benchmarks Multimodales</div>
+                    <canvas id="multimodalChart" width="400" height="200"></canvas>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section class="summary">
+                <h3>Resumen de Liderazgo por Categoría</h3>
+                <p>Los modelos más avanzados dominan diferentes áreas de especialización</p>
+                
+                <div class="summary-stats">
+                    <div class="stat">
+                        <span class="stat-number">🧮</span>
+                        <div class="stat-label">Matemáticas: Grok 4</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">💻</span>
+                        <div class="stat-label">Programación: Claude Opus 4</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">🎯</span>
+                        <div class="stat-label">General: Gemini 2.5 Pro</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">🎨</span>
+                        <div class="stat-label">Multimodal: GPT-4o</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Benchmarks</h4>
+                    <p>Evaluaciones comparativas actualizadas de los modelos de IA más avanzados, basadas en fuentes oficiales y benchmarks reconocidos.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Fuentes</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://lmarena.ai/leaderboard">LMSYS Arena</a></li>
+                        <li><a href="https://crfm.stanford.edu/helm/">Stanford HELM</a></li>
+                        <li><a href="https://www.vals.ai/benchmarks/">Vals AI</a></li>
+                        <li><a href="https://huggingface.co/">Hugging Face</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Categorías</h4>
+                    <ul class="footer-links">
+                        <li><a href="#matematicas">Matemáticas</a></li>
+                        <li><a href="#programacion">Programación</a></li>
+                        <li><a href="#general">General</a></li>
+                        <li><a href="#multimodal">Multimodal</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 AI News. Datos actualizados el 25/07/2025.</p>
+                <div class="last-update">
+                    <div class="pulse"></div>
+                    <span>Próxima actualización: 26/07/2025</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Chart configurations
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 20,
+                        usePointStyle: true
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
+                }
+            }
+        };
+
+        // Math Chart
+        const mathCtx = document.getElementById('mathChart').getContext('2d');
+        new Chart(mathCtx, {
+            type: 'bar',
+            data: {
+                labels: ['AIME', 'MATH Dataset', 'GPQA-Diamond'],
+                datasets: [
+                    {
+                        label: 'Grok 4',
+                        data: [90.6, 82.1, 68.9],
+                        backgroundColor: '#3b82f6',
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'GPT-4o',
+                        data: [42.3, 88.4, 73.8],
+                        backgroundColor: '#10b981',
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'Kimi K2',
+                        data: [49.5, 79.2, 75.1],
+                        backgroundColor: '#f59e0b',
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: chartOptions
+        });
+
+        // Coding Chart
+        const codingCtx = document.getElementById('codingChart').getContext('2d');
+        new Chart(codingCtx, {
+            type: 'bar',
+            data: {
+                labels: ['HumanEval', 'SWE-Bench', 'LiveCodeBench'],
+                datasets: [
+                    {
+                        label: 'Claude Opus 4',
+                        data: [94.2, 75.0, 82.6],
+                        backgroundColor: '#8b5cf6',
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'GPT-4o',
+                        data: [91.8, 68.4, 79.1],
+                        backgroundColor: '#10b981',
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'Qwen2.5-Coder',
+                        data: [89.3, 63.7, 76.4],
+                        backgroundColor: '#f59e0b',
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: chartOptions
+        });
+
+        // General Chart
+        const generalCtx = document.getElementById('generalChart').getContext('2d');
+        new Chart(generalCtx, {
+            type: 'radar',
+            data: {
+                labels: ['LMSYS Arena', 'MT-Bench', 'MMLU', 'BBH'],
+                datasets: [
+                    {
+                        label: 'GPT-4o',
+                        data: [95, 89.7, 88.7, 83.1],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        pointBackgroundColor: '#10b981'
+                    },
+                    {
+                        label: 'Gemini 2.5 Pro',
+                        data: [100, 87.2, 87.9, 81.9],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        pointBackgroundColor: '#3b82f6'
+                    },
+                    {
+                        label: 'Claude Opus 4',
+                        data: [92, 88.5, 86.8, 79.4],
+                        borderColor: '#8b5cf6',
+                        backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                        pointBackgroundColor: '#8b5cf6'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20
+                        }
+                    }
+                }
+            }
+        });
+
+        // Multimodal Chart
+        const multimodalCtx = document.getElementById('multimodalChart').getContext('2d');
+        new Chart(multimodalCtx, {
+            type: 'line',
+            data: {
+                labels: ['MMMU', 'MathVista', 'AI2D', 'ChartQA'],
+                datasets: [
+                    {
+                        label: 'GPT-4o',
+                        data: [69.1, 63.8, 84.6, 78.5],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: 'Gemini 2.0 Flash',
+                        data: [65.8, 61.2, 82.1, 76.9],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: 'Claude 3.5 Sonnet',
+                        data: [64.2, 58.7, 80.3, 74.2],
+                        borderColor: '#8b5cf6',
+                        backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }
+                ]
+            },
+            options: chartOptions
+        });
+    </script>
 </body>
 </html>
+
