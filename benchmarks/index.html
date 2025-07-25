@@ -153,7 +153,7 @@
         
         /* Benchmark sections */
         .benchmark-section {
-            margin-bottom: 80px;
+            margin-bottom: 64px;
         }
         
         .section-header {
@@ -173,7 +173,7 @@
             font-size: 20px;
         }
         
-        .section-icon.math {
+        .section-icon.reasoning {
             background: #f0f9ff;
             color: #0369a1;
         }
@@ -183,17 +183,21 @@
             color: #374151;
         }
         
-        .section-icon.general {
+        .section-icon.multimodal {
             background: #fdf2f8;
             color: #be185d;
         }
         
-        .section-icon.multimodal {
+        .section-icon.creative {
             background: #f0fdf4;
-            color: #166534;
+            color: #16a34a;
         }
         
-        .section h2 {
+        .section-title {
+            flex: 1;
+        }
+        
+        .section-title h2 {
             font-size: 32px;
             font-weight: 600;
             color: #1a1a1a;
@@ -201,12 +205,17 @@
             letter-spacing: -0.01em;
         }
         
-        /* Benchmark cards */
+        .section-count {
+            color: #666;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        
+        /* Benchmark grid */
         .benchmark-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 24px;
-            margin-bottom: 48px;
         }
         
         .benchmark-card {
@@ -228,112 +237,37 @@
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 8px;
+            line-height: 1.4;
         }
         
-        .benchmark-card .description {
+        .benchmark-description {
             color: #666;
             font-size: 14px;
             margin-bottom: 20px;
             line-height: 1.5;
         }
         
-        .benchmark-results {
-            border-top: 1px solid #f5f5f5;
-            padding-top: 20px;
+        .chart-container {
+            height: 200px;
+            margin-bottom: 16px;
+            position: relative;
         }
         
-        .result-item {
+        .benchmark-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid #f9f9f9;
+            font-size: 12px;
+            color: #999;
         }
         
-        .result-item:last-child {
-            border-bottom: none;
-        }
-        
-        .model-name {
-            font-weight: 500;
-            color: #1a1a1a;
-            font-size: 14px;
-        }
-        
-        .model-score {
-            font-weight: 600;
+        .benchmark-source {
             color: #0369a1;
-            font-size: 14px;
+            text-decoration: none;
         }
         
-        .winner {
-            background: #f0f9ff;
-            border-radius: 6px;
-            padding: 4px 8px;
-        }
-        
-        /* Chart container */
-        .chart-container {
-            background: white;
-            border: 1px solid #e5e5e5;
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 48px;
-        }
-        
-        .chart-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        /* Summary section */
-        .summary {
-            background: #1a1a1a;
-            color: white;
-            padding: 48px;
-            border-radius: 16px;
-            text-align: center;
-            margin: 64px 0;
-        }
-        
-        .summary h3 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            letter-spacing: -0.01em;
-        }
-        
-        .summary p {
-            font-size: 16px;
-            color: #999;
-            margin-bottom: 32px;
-        }
-        
-        .summary-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 32px;
-            margin-top: 32px;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 32px;
-            font-weight: 700;
-            color: white;
-            display: block;
-        }
-        
-        .stat-label {
-            font-size: 14px;
-            color: #999;
-            margin-top: 4px;
+        .benchmark-source:hover {
+            color: #1e40af;
         }
         
         /* Footer */
@@ -416,16 +350,16 @@
                 grid-template-columns: 1fr;
             }
             
-            .summary-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .container {
                 padding: 0 16px;
             }
             
             .main {
                 padding: 48px 0;
+            }
+            
+            .chart-container {
+                height: 150px;
             }
         }
     </style>
@@ -454,399 +388,326 @@
         <div class="container">
             <section class="hero">
                 <h1>Benchmarks de IA</h1>
-                <p>Evaluación comparativa de los modelos de inteligencia artificial más avanzados del mundo</p>
+                <p>Comparativa actualizada de los mejores modelos de IA en diferentes tareas y dominios</p>
                 
                 <div class="last-update">
                     <div class="pulse"></div>
-                    <span>Actualizado: 25 de julio, 2025</span>
+                    <span>Actualizado el 25/07/2025</span>
                 </div>
             </section>
 
-            <!-- Mathematics Section -->
+            <!-- Reasoning Benchmarks -->
             <section class="benchmark-section">
                 <div class="section-header">
-                    <div class="section-icon math">🧮</div>
-                    <h2>Matemáticas y Razonamiento</h2>
+                    <div class="section-icon reasoning">🧠</div>
+                    <div class="section-title">
+                        <h2>Razonamiento y Matemáticas</h2>
+                        <div class="section-count">6 benchmarks</div>
+                    </div>
                 </div>
                 
                 <div class="benchmark-grid">
                     <div class="benchmark-card">
-                        <h3>AIME (AI Mathematical Evaluation)</h3>
-                        <p class="description">Problemas de matemáticas de nivel olimpiada que requieren razonamiento avanzado y creatividad matemática.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 Grok 4</span>
-                                <span class="model-score">90.6%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 Kimi K2</span>
-                                <span class="model-score">49.5%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Claude Opus 4</span>
-                                <span class="model-score">45.2%</span>
-                            </div>
+                        <h3>AIME 2025</h3>
+                        <p class="benchmark-description">American Invitational Mathematics Examination - Problemas de matemáticas de nivel competitivo</p>
+                        <div class="chart-container">
+                            <canvas id="aimeChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 22/07/2025</span>
+                            <a href="https://www.vals.ai/benchmarks/aime-2025-07-22" class="benchmark-source" target="_blank">Vals AI</a>
                         </div>
                     </div>
 
                     <div class="benchmark-card">
-                        <h3>IMO 2025 (International Math Olympiad)</h3>
-                        <p class="description">Competencia matemática más prestigiosa para estudiantes de secundaria a nivel mundial.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 OpenAI o1</span>
-                                <span class="model-score">Medalla de Oro</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 DeepMind Alpha</span>
-                                <span class="model-score">Medalla de Plata</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Claude Opus 4</span>
-                                <span class="model-score">Medalla de Bronce</span>
-                            </div>
+                        <h3>MATH-500</h3>
+                        <p class="benchmark-description">Problemas matemáticos de competición de nivel universitario</p>
+                        <div class="chart-container">
+                            <canvas id="mathChart"></canvas>
                         </div>
-                    </div>
-
-                    <div class="benchmark-card">
-                        <h3>MATH Dataset</h3>
-                        <p class="description">Problemas matemáticos de competencia que requieren múltiples pasos de razonamiento.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 GPT-4o</span>
-                                <span class="model-score">88.4%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 Gemini 2.5 Pro</span>
-                                <span class="model-score">86.7%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Claude Opus 4</span>
-                                <span class="model-score">84.9%</span>
-                            </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 23/07/2025</span>
+                            <a href="https://paperswithcode.com/sota/mathematical-reasoning-on-math" class="benchmark-source" target="_blank">Papers With Code</a>
                         </div>
                     </div>
 
                     <div class="benchmark-card">
                         <h3>GPQA-Diamond</h3>
-                        <p class="description">Preguntas de ciencias de nivel graduado que requieren conocimiento experto.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 Kimi K2</span>
-                                <span class="model-score">75.1%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 GPT-4o</span>
-                                <span class="model-score">73.8%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Gemini 2.5 Pro</span>
-                                <span class="model-score">71.2%</span>
-                            </div>
+                        <p class="benchmark-description">Preguntas de nivel graduado en física, química y biología</p>
+                        <div class="chart-container">
+                            <canvas id="gpqaChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 22/07/2025</span>
+                            <a href="https://www.vals.ai/home" class="benchmark-source" target="_blank">Vals AI</a>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>LMSys Arena</h3>
+                        <p class="benchmark-description">Evaluación humana de modelos de lenguaje en conversaciones reales</p>
+                        <div class="chart-container">
+                            <canvas id="lmsysChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 25/07/2025</span>
+                            <a href="https://lmsys.org/blog/" class="benchmark-source" target="_blank">LMSys Org</a>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>SimpleBench</h3>
+                        <p class="benchmark-description">Problemas simples que revelan limitaciones de razonamiento básico</p>
+                        <div class="chart-container">
+                            <canvas id="simpleChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 20/07/2025</span>
+                            <a href="https://www.vals.ai/home" class="benchmark-source" target="_blank">Vals AI</a>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>Human Flourishing</h3>
+                        <p class="benchmark-description">Evaluación de alineación con valores humanos y bienestar</p>
+                        <div class="chart-container">
+                            <canvas id="flourishChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 24/07/2025</span>
+                            <a href="https://www.bigdatawire.com/2025/07/24/many-big-ai-models-fail-to-pass-benchmark-for-human-flourishing-new-gloo-study-reports/" class="benchmark-source" target="_blank">Gloo Study</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="chart-container">
-                    <div class="chart-title">Rendimiento en Benchmarks Matemáticos</div>
-                    <canvas id="mathChart" width="400" height="200"></canvas>
-                </div>
             </section>
 
-            <!-- Coding Section -->
+            <!-- Coding Benchmarks -->
             <section class="benchmark-section">
                 <div class="section-header">
                     <div class="section-icon coding">💻</div>
-                    <h2>Programación y Código</h2>
+                    <div class="section-title">
+                        <h2>Programación y Código</h2>
+                        <div class="section-count">5 benchmarks</div>
+                    </div>
                 </div>
                 
                 <div class="benchmark-grid">
                     <div class="benchmark-card">
                         <h3>HumanEval</h3>
-                        <p class="description">Evaluación estándar de capacidades de programación con problemas de codificación práticos.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 Claude Opus 4</span>
-                                <span class="model-score">94.2%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 GPT-4o</span>
-                                <span class="model-score">91.8%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Qwen2.5-Coder</span>
-                                <span class="model-score">89.3%</span>
-                            </div>
+                        <p class="benchmark-description">Generación de código Python a partir de descripciones en lenguaje natural</p>
+                        <div class="chart-container">
+                            <canvas id="humanEvalChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 23/07/2025</span>
+                            <a href="https://paperswithcode.com/sota/code-generation-on-humaneval" class="benchmark-source" target="_blank">Papers With Code</a>
                         </div>
                     </div>
 
                     <div class="benchmark-card">
                         <h3>SWE-Bench Verified</h3>
-                        <p class="description">Problemas reales de ingeniería de software extraídos de repositorios de GitHub.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 Claude Code</span>
-                                <span class="model-score">75.0%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 GPT-4o</span>
-                                <span class="model-score">68.4%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 DeepSeek Coder</span>
-                                <span class="model-score">63.7%</span>
-                            </div>
+                        <p class="benchmark-description">Resolución de issues reales de GitHub en repositorios de código abierto</p>
+                        <div class="chart-container">
+                            <canvas id="sweBenchChart"></canvas>
                         </div>
-                    </div>
-
-                    <div class="benchmark-card">
-                        <h3>K-Bench (Nuevo)</h3>
-                        <p class="description">Benchmark extremadamente desafiante de codificación con $1M de premio para el primer modelo que supere 90%.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 Claude Opus 4</span>
-                                <span class="model-score">7.5%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 GPT-4o</span>
-                                <span class="model-score">6.8%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Gemini 2.5 Pro</span>
-                                <span class="model-score">5.9%</span>
-                            </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 23/07/2025</span>
+                            <a href="https://twitter.com/OpenRouterAI/status/1947791592602956258" class="benchmark-source" target="_blank">OpenRouter</a>
                         </div>
                     </div>
 
                     <div class="benchmark-card">
                         <h3>LiveCodeBench</h3>
-                        <p class="description">Evaluación en tiempo real de capacidades de codificación con problemas actualizados.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 Claude Opus 4</span>
-                                <span class="model-score">82.6%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 GPT-4o</span>
-                                <span class="model-score">79.1%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Qwen2.5-Coder</span>
-                                <span class="model-score">76.4%</span>
-                            </div>
+                        <p class="benchmark-description">Problemas de programación competitiva actualizados continuamente</p>
+                        <div class="chart-container">
+                            <canvas id="liveCodeChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 22/07/2025</span>
+                            <a href="https://www.vals.ai/benchmarks/lcb-07-22-2025" class="benchmark-source" target="_blank">Vals AI</a>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>MBPP</h3>
+                        <p class="benchmark-description">Mostly Basic Python Problems - Problemas básicos de programación en Python</p>
+                        <div class="chart-container">
+                            <canvas id="mbppChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 23/07/2025</span>
+                            <a href="https://paperswithcode.com/sota/code-generation-on-mbpp" class="benchmark-source" target="_blank">Papers With Code</a>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>K Prize Challenge</h3>
+                        <p class="benchmark-description">Desafío de codificación de IA del mundo real con tareas complejas</p>
+                        <div class="chart-container">
+                            <canvas id="kPrizeChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 23/07/2025</span>
+                            <a href="https://techcrunch.com/2025/07/23/a-new-ai-coding-challenge-just-published-its-first-results-and-they-arent-pretty/" class="benchmark-source" target="_blank">TechCrunch</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="chart-container">
-                    <div class="chart-title">Rendimiento en Benchmarks de Programación</div>
-                    <canvas id="codingChart" width="400" height="200"></canvas>
-                </div>
             </section>
 
-            <!-- General Capabilities Section -->
+            <!-- Multimodal Benchmarks -->
             <section class="benchmark-section">
                 <div class="section-header">
-                    <div class="section-icon general">🎯</div>
-                    <h2>Capacidades Generales</h2>
+                    <div class="section-icon multimodal">👁️</div>
+                    <div class="section-title">
+                        <h2>Multimodal y Visión</h2>
+                        <div class="section-count">6 benchmarks</div>
+                    </div>
                 </div>
                 
                 <div class="benchmark-grid">
                     <div class="benchmark-card">
-                        <h3>LMSYS Chatbot Arena</h3>
-                        <p class="description">Evaluación crowd-sourced con sistema Elo basada en preferencias humanas reales.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 Gemini 2.5 Pro</span>
-                                <span class="model-score">1,342 Elo</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 ChatGPT-4o-latest</span>
-                                <span class="model-score">1,338 Elo</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 o1-preview</span>
-                                <span class="model-score">1,335 Elo</span>
-                            </div>
+                        <h3>MMMU</h3>
+                        <p class="benchmark-description">Massive Multimodal Multitask Understanding - Comprensión multimodal multidisciplinaria</p>
+                        <div class="chart-container">
+                            <canvas id="mmmuChart"></canvas>
                         </div>
-                    </div>
-
-                    <div class="benchmark-card">
-                        <h3>MT-Bench</h3>
-                        <p class="description">Framework unificado que evalúa conversaciones multi-turno usando LLM-as-a-judge.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 GPT-4o</span>
-                                <span class="model-score">8.97</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 Claude Opus 4</span>
-                                <span class="model-score">8.85</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Gemini 2.5 Pro</span>
-                                <span class="model-score">8.72</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="benchmark-card">
-                        <h3>MMLU (Massive Multitask Language Understanding)</h3>
-                        <p class="description">El "examen SAT" para modelos de IA, evaluando conocimiento en 57 materias académicas.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 GPT-4o</span>
-                                <span class="model-score">88.7%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 Gemini 2.5 Pro</span>
-                                <span class="model-score">87.9%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Claude Opus 4</span>
-                                <span class="model-score">86.8%</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="benchmark-card">
-                        <h3>Big-Bench Hard (BBH)</h3>
-                        <p class="description">23 tareas más desafiantes que requieren razonamiento multi-paso y juicio causal.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 o1-preview</span>
-                                <span class="model-score">85.5%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 GPT-4o</span>
-                                <span class="model-score">83.1%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Gemini 2.5 Pro</span>
-                                <span class="model-score">81.9%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="chart-container">
-                    <div class="chart-title">Rendimiento en Benchmarks Generales</div>
-                    <canvas id="generalChart" width="400" height="200"></canvas>
-                </div>
-            </section>
-
-            <!-- Multimodal Section -->
-            <section class="benchmark-section">
-                <div class="section-header">
-                    <div class="section-icon multimodal">🎨</div>
-                    <h2>Capacidades Multimodales</h2>
-                </div>
-                
-                <div class="benchmark-grid">
-                    <div class="benchmark-card">
-                        <h3>MMMU (Massive Multi-discipline Multimodal Understanding)</h3>
-                        <p class="description">Evaluación de comprensión multimodal en múltiples disciplinas académicas.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 GPT-4o</span>
-                                <span class="model-score">69.1%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 Gemini 2.0 Flash</span>
-                                <span class="model-score">65.8%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Claude 3.5 Sonnet</span>
-                                <span class="model-score">64.2%</span>
-                            </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 22/07/2025</span>
+                            <a href="https://www.vals.ai/home" class="benchmark-source" target="_blank">Vals AI</a>
                         </div>
                     </div>
 
                     <div class="benchmark-card">
                         <h3>MathVista</h3>
-                        <p class="description">Razonamiento matemático visual que combina comprensión de imágenes y matemáticas.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 GPT-4o</span>
-                                <span class="model-score">63.8%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 Gemini 2.0 Flash</span>
-                                <span class="model-score">61.2%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Claude 3.5 Sonnet</span>
-                                <span class="model-score">58.7%</span>
-                            </div>
+                        <p class="benchmark-description">Razonamiento matemático visual con gráficos, diagramas y figuras</p>
+                        <div class="chart-container">
+                            <canvas id="mathVistaChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 20/07/2025</span>
+                            <a href="https://paperswithcode.com/sota/mathematical-reasoning-on-mathvista" class="benchmark-source" target="_blank">Papers With Code</a>
                         </div>
                     </div>
 
                     <div class="benchmark-card">
-                        <h3>AI2D (AI2 Diagram Understanding)</h3>
-                        <p class="description">Comprensión de diagramas científicos y razonamiento visual.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 GPT-4o</span>
-                                <span class="model-score">84.6%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 Gemini 2.0 Flash</span>
-                                <span class="model-score">82.1%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Claude 3.5 Sonnet</span>
-                                <span class="model-score">80.3%</span>
-                            </div>
+                        <h3>AI2D</h3>
+                        <p class="benchmark-description">Comprensión de diagramas científicos y educativos</p>
+                        <div class="chart-container">
+                            <canvas id="ai2dChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 18/07/2025</span>
+                            <a href="https://paperswithcode.com/sota/visual-question-answering-on-ai2d" class="benchmark-source" target="_blank">Papers With Code</a>
                         </div>
                     </div>
 
                     <div class="benchmark-card">
                         <h3>ChartQA</h3>
-                        <p class="description">Comprensión y análisis de gráficos y visualizaciones de datos.</p>
-                        <div class="benchmark-results">
-                            <div class="result-item winner">
-                                <span class="model-name">🥇 GPT-4o</span>
-                                <span class="model-score">78.5%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥈 Gemini 2.0 Flash</span>
-                                <span class="model-score">76.9%</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="model-name">🥉 Claude 3.5 Sonnet</span>
-                                <span class="model-score">74.2%</span>
-                            </div>
+                        <p class="benchmark-description">Análisis y comprensión de gráficos y visualizaciones de datos</p>
+                        <div class="chart-container">
+                            <canvas id="chartQAChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 19/07/2025</span>
+                            <a href="https://paperswithcode.com/sota/visual-question-answering-on-chartqa" class="benchmark-source" target="_blank">Papers With Code</a>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>TimeScope</h3>
+                        <p class="benchmark-description">Comprensión de videos largos y análisis temporal</p>
+                        <div class="chart-container">
+                            <canvas id="timeScopeChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 23/07/2025</span>
+                            <a href="https://huggingface.co/blog/timescope-video-lmm-benchmark" class="benchmark-source" target="_blank">Hugging Face</a>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>POPE</h3>
+                        <p class="benchmark-description">Polling-based Object Probing Evaluation - Detección de alucinaciones visuales</p>
+                        <div class="chart-container">
+                            <canvas id="popeChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 21/07/2025</span>
+                            <a href="https://paperswithcode.com/sota/hallucination-on-pope" class="benchmark-source" target="_blank">Papers With Code</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="chart-container">
-                    <div class="chart-title">Rendimiento en Benchmarks Multimodales</div>
-                    <canvas id="multimodalChart" width="400" height="200"></canvas>
-                </div>
             </section>
 
-            <!-- Summary -->
-            <section class="summary">
-                <h3>Resumen de Liderazgo por Categoría</h3>
-                <p>Los modelos más avanzados dominan diferentes áreas de especialización</p>
+            <!-- Creative Benchmarks -->
+            <section class="benchmark-section">
+                <div class="section-header">
+                    <div class="section-icon creative">🎨</div>
+                    <div class="section-title">
+                        <h2>Generación Creativa</h2>
+                        <div class="section-count">5 benchmarks</div>
+                    </div>
+                </div>
                 
-                <div class="summary-stats">
-                    <div class="stat">
-                        <span class="stat-number">🧮</span>
-                        <div class="stat-label">Matemáticas: Grok 4</div>
+                <div class="benchmark-grid">
+                    <div class="benchmark-card">
+                        <h3>Generación de Imágenes (FID)</h3>
+                        <p class="benchmark-description">Fréchet Inception Distance - Calidad y realismo de imágenes generadas</p>
+                        <div class="chart-container">
+                            <canvas id="imageGenChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 24/07/2025</span>
+                            <a href="https://paperswithcode.com/sota/image-generation-on-coco" class="benchmark-source" target="_blank">Papers With Code</a>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">💻</span>
-                        <div class="stat-label">Programación: Claude Opus 4</div>
+
+                    <div class="benchmark-card">
+                        <h3>CLIP Score</h3>
+                        <p class="benchmark-description">Alineación semántica entre texto e imagen generada</p>
+                        <div class="chart-container">
+                            <canvas id="clipChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 24/07/2025</span>
+                            <a href="https://paperswithcode.com/sota/text-to-image-generation-on-ms-coco" class="benchmark-source" target="_blank">Papers With Code</a>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">🎯</span>
-                        <div class="stat-label">General: Gemini 2.5 Pro</div>
+
+                    <div class="benchmark-card">
+                        <h3>Generación de Video (VMBench)</h3>
+                        <p class="benchmark-description">Video Motion Benchmark - Calidad de movimiento en videos generados</p>
+                        <div class="chart-container">
+                            <canvas id="videoGenChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 20/07/2025</span>
+                            <a href="https://paperswithcode.com/paper/vmbench-a-benchmark-for-perception-aligned/review/" class="benchmark-source" target="_blank">Papers With Code</a>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">🎨</span>
-                        <div class="stat-label">Multimodal: GPT-4o</div>
+
+                    <div class="benchmark-card">
+                        <h3>AIGV-Assessor</h3>
+                        <p class="benchmark-description">Evaluación perceptual de calidad en generación text-to-video</p>
+                        <div class="chart-container">
+                            <canvas id="aigvChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 24/07/2025</span>
+                            <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Wang_AIGV-Assessor_Benchmarking_and_Evaluating_the_Perceptual_Quality_of_Text-to-Video_Generation_CVPR_2025_paper.pdf" class="benchmark-source" target="_blank">CVPR 2025</a>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>PhyWorldBench</h3>
+                        <p class="benchmark-description">Evaluación de realismo físico en modelos text-to-video</p>
+                        <div class="chart-container">
+                            <canvas id="phyWorldChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 23/07/2025</span>
+                            <a href="https://x.com/_akhaliq/status/1947829517034147893" class="benchmark-source" target="_blank">ArXiv</a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -858,33 +719,34 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Benchmarks</h4>
-                    <p>Evaluaciones comparativas actualizadas de los modelos de IA más avanzados, basadas en fuentes oficiales y benchmarks reconocidos.</p>
+                    <h4>AI News</h4>
+                    <p>Benchmarks actualizados de los mejores modelos de IA. Datos verificados de fuentes oficiales y papers académicos.</p>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Fuentes</h4>
                     <ul class="footer-links">
-                        <li><a href="https://lmarena.ai/leaderboard">LMSYS Arena</a></li>
-                        <li><a href="https://crfm.stanford.edu/helm/">Stanford HELM</a></li>
-                        <li><a href="https://www.vals.ai/benchmarks/">Vals AI</a></li>
-                        <li><a href="https://huggingface.co/">Hugging Face</a></li>
+                        <li><a href="https://lmsys.org/blog/" target="_blank">LMSys Arena</a></li>
+                        <li><a href="https://www.vals.ai/home" target="_blank">Vals AI</a></li>
+                        <li><a href="https://paperswithcode.com/" target="_blank">Papers With Code</a></li>
+                        <li><a href="https://artificialanalysis.ai/" target="_blank">Artificial Analysis</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Categorías</h4>
+                    <h4>Navegación</h4>
                     <ul class="footer-links">
-                        <li><a href="#matematicas">Matemáticas</a></li>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="#razonamiento">Razonamiento</a></li>
                         <li><a href="#programacion">Programación</a></li>
-                        <li><a href="#general">General</a></li>
                         <li><a href="#multimodal">Multimodal</a></li>
+                        <li><a href="#creatividad">Creatividad</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>© 2025 AI News. Datos actualizados el 25/07/2025.</p>
+                <p>© 2025 AI News. Benchmarks actualizados el 25/07/2025.</p>
                 <div class="last-update">
                     <div class="pulse"></div>
                     <span>Próxima actualización: 26/07/2025</span>
@@ -894,180 +756,670 @@
     </footer>
 
     <script>
-        // Chart configurations
-        const chartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        padding: 20,
-                        usePointStyle: true
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 100,
-                    ticks: {
-                        callback: function(value) {
-                            return value + '%';
-                        }
-                    }
-                }
-            }
-        };
+        // Chart configuration
+        Chart.defaults.font.family = 'Inter';
+        Chart.defaults.font.size = 12;
+        Chart.defaults.color = '#666';
 
-        // Math Chart
-        const mathCtx = document.getElementById('mathChart').getContext('2d');
-        new Chart(mathCtx, {
+        // AIME Chart
+        const aimeCtx = document.getElementById('aimeChart').getContext('2d');
+        new Chart(aimeCtx, {
             type: 'bar',
             data: {
-                labels: ['AIME', 'MATH Dataset', 'GPQA-Diamond'],
-                datasets: [
-                    {
-                        label: 'Grok 4',
-                        data: [90.6, 82.1, 68.9],
-                        backgroundColor: '#3b82f6',
-                        borderRadius: 4
-                    },
-                    {
-                        label: 'GPT-4o',
-                        data: [42.3, 88.4, 73.8],
-                        backgroundColor: '#10b981',
-                        borderRadius: 4
-                    },
-                    {
-                        label: 'Kimi K2',
-                        data: [49.5, 79.2, 75.1],
-                        backgroundColor: '#f59e0b',
-                        borderRadius: 4
-                    }
-                ]
-            },
-            options: chartOptions
-        });
-
-        // Coding Chart
-        const codingCtx = document.getElementById('codingChart').getContext('2d');
-        new Chart(codingCtx, {
-            type: 'bar',
-            data: {
-                labels: ['HumanEval', 'SWE-Bench', 'LiveCodeBench'],
-                datasets: [
-                    {
-                        label: 'Claude Opus 4',
-                        data: [94.2, 75.0, 82.6],
-                        backgroundColor: '#8b5cf6',
-                        borderRadius: 4
-                    },
-                    {
-                        label: 'GPT-4o',
-                        data: [91.8, 68.4, 79.1],
-                        backgroundColor: '#10b981',
-                        borderRadius: 4
-                    },
-                    {
-                        label: 'Qwen2.5-Coder',
-                        data: [89.3, 63.7, 76.4],
-                        backgroundColor: '#f59e0b',
-                        borderRadius: 4
-                    }
-                ]
-            },
-            options: chartOptions
-        });
-
-        // General Chart
-        const generalCtx = document.getElementById('generalChart').getContext('2d');
-        new Chart(generalCtx, {
-            type: 'radar',
-            data: {
-                labels: ['LMSYS Arena', 'MT-Bench', 'MMLU', 'BBH'],
-                datasets: [
-                    {
-                        label: 'GPT-4o',
-                        data: [95, 89.7, 88.7, 83.1],
-                        borderColor: '#10b981',
-                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                        pointBackgroundColor: '#10b981'
-                    },
-                    {
-                        label: 'Gemini 2.5 Pro',
-                        data: [100, 87.2, 87.9, 81.9],
-                        borderColor: '#3b82f6',
-                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                        pointBackgroundColor: '#3b82f6'
-                    },
-                    {
-                        label: 'Claude Opus 4',
-                        data: [92, 88.5, 86.8, 79.4],
-                        borderColor: '#8b5cf6',
-                        backgroundColor: 'rgba(139, 92, 246, 0.1)',
-                        pointBackgroundColor: '#8b5cf6'
-                    }
-                ]
+                labels: ['Grok 4', 'Gemini 2.5 Pro', 'DeepSeek R1', 'o1', 'Kimi K2'],
+                datasets: [{
+                    data: [90.6, 86.7, 79.0, 78.0, 49.5],
+                    backgroundColor: ['#0369a1', '#34d399', '#f59e0b', '#ef4444', '#8b5cf6'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            padding: 20,
-                            usePointStyle: true
-                        }
-                    }
+                    legend: { display: false }
                 },
                 scales: {
-                    r: {
+                    y: {
                         beginAtZero: true,
                         max: 100,
-                        ticks: {
-                            stepSize: 20
-                        }
-                    }
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
                 }
             }
         });
 
-        // Multimodal Chart
-        const multimodalCtx = document.getElementById('multimodalChart').getContext('2d');
-        new Chart(multimodalCtx, {
-            type: 'line',
+        // MATH-500 Chart
+        const mathCtx = document.getElementById('mathChart').getContext('2d');
+        new Chart(mathCtx, {
+            type: 'bar',
             data: {
-                labels: ['MMMU', 'MathVista', 'AI2D', 'ChartQA'],
-                datasets: [
-                    {
-                        label: 'GPT-4o',
-                        data: [69.1, 63.8, 84.6, 78.5],
-                        borderColor: '#10b981',
-                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                        tension: 0.4,
-                        fill: true
-                    },
-                    {
-                        label: 'Gemini 2.0 Flash',
-                        data: [65.8, 61.2, 82.1, 76.9],
-                        borderColor: '#3b82f6',
-                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                        tension: 0.4,
-                        fill: true
-                    },
-                    {
-                        label: 'Claude 3.5 Sonnet',
-                        data: [64.2, 58.7, 80.3, 74.2],
-                        borderColor: '#8b5cf6',
-                        backgroundColor: 'rgba(139, 92, 246, 0.1)',
-                        tension: 0.4,
-                        fill: true
-                    }
-                ]
+                labels: ['DeepSeek R1', 'o3', 'Gemini 2.5 Pro', 'Claude Opus 4', 'Grok 4'],
+                datasets: [{
+                    data: [97.3, 96.7, 94.2, 92.8, 91.4],
+                    backgroundColor: ['#f59e0b', '#ef4444', '#34d399', '#8b5cf6', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
             },
-            options: chartOptions
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // GPQA Chart
+        const gpqaCtx = document.getElementById('gpqaChart').getContext('2d');
+        new Chart(gpqaCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Kimi K2', 'o3', 'Grok 4', 'Gemini 2.5 Pro', 'Claude Opus 4'],
+                datasets: [{
+                    data: [75.1, 74.2, 73.8, 72.9, 71.5],
+                    backgroundColor: ['#8b5cf6', '#ef4444', '#0369a1', '#34d399', '#8b5cf6'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // LMSys Arena Chart
+        const lmsysCtx = document.getElementById('lmsysChart').getContext('2d');
+        new Chart(lmsysCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Gemini 2.5 Pro', 'Claude Opus 4', 'GPT-4o', 'Grok 4', 'Kimi K2'],
+                datasets: [{
+                    data: [1342, 1338, 1329, 1325, 1318],
+                    backgroundColor: ['#34d399', '#8b5cf6', '#ef4444', '#0369a1', '#8b5cf6'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 1300,
+                        max: 1350,
+                        ticks: { callback: value => value + ' Elo' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // SimpleBench Chart
+        const simpleCtx = document.getElementById('simpleChart').getContext('2d');
+        new Chart(simpleCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Grok 4', 'o3', 'Claude Opus 4', 'Gemini 2.5 Pro', 'DeepSeek R1'],
+                datasets: [{
+                    data: [60.5, 58.2, 56.8, 54.3, 52.1],
+                    backgroundColor: ['#0369a1', '#ef4444', '#8b5cf6', '#34d399', '#f59e0b'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 70,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // Human Flourishing Chart
+        const flourishCtx = document.getElementById('flourishChart').getContext('2d');
+        new Chart(flourishCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude Opus 4', 'Gemini 2.5 Pro', 'GPT-4o', 'Grok 4', 'DeepSeek R1'],
+                datasets: [{
+                    data: [78.5, 72.3, 68.9, 65.2, 61.8],
+                    backgroundColor: ['#8b5cf6', '#34d399', '#ef4444', '#0369a1', '#f59e0b'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // HumanEval Chart
+        const humanEvalCtx = document.getElementById('humanEvalChart').getContext('2d');
+        new Chart(humanEvalCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude Opus 4', 'Qwen3-Coder', 'Grok 4', 'DeepSeek R1', 'Kimi K2'],
+                datasets: [{
+                    data: [94.2, 89.7, 87.3, 73.2, 71.8],
+                    backgroundColor: ['#8b5cf6', '#f59e0b', '#0369a1', '#f59e0b', '#8b5cf6'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // SWE-Bench Chart
+        const sweBenchCtx = document.getElementById('sweBenchChart').getContext('2d');
+        new Chart(sweBenchCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude Opus 4', 'Qwen3-Coder', 'o3', 'Kimi K2', 'GPT-4.1'],
+                datasets: [{
+                    data: [70.4, 69.6, 69.1, 65.4, 54.6],
+                    backgroundColor: ['#8b5cf6', '#f59e0b', '#ef4444', '#8b5cf6', '#ef4444'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // LiveCodeBench Chart
+        const liveCodeCtx = document.getElementById('liveCodeChart').getContext('2d');
+        new Chart(liveCodeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Qwen3-Coder', 'Claude Opus 4', 'Grok 4', 'DeepSeek R1', 'Kimi K2'],
+                datasets: [{
+                    data: [67.8, 65.2, 62.9, 58.4, 55.7],
+                    backgroundColor: ['#f59e0b', '#8b5cf6', '#0369a1', '#f59e0b', '#8b5cf6'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // MBPP Chart
+        const mbppCtx = document.getElementById('mbppChart').getContext('2d');
+        new Chart(mbppCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Qwen3-Coder', 'Claude Opus 4', 'DeepSeek R1', 'Grok 4', 'Kimi K2'],
+                datasets: [{
+                    data: [84.3, 82.7, 69.8, 68.5, 66.2],
+                    backgroundColor: ['#f59e0b', '#8b5cf6', '#f59e0b', '#0369a1', '#8b5cf6'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // K Prize Chart
+        const kPrizeCtx = document.getElementById('kPrizeChart').getContext('2d');
+        new Chart(kPrizeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude Opus 4', 'Grok 4', 'o3', 'DeepSeek R1', 'GPT-4o'],
+                datasets: [{
+                    data: [7.5, 6.8, 6.2, 5.9, 5.1],
+                    backgroundColor: ['#8b5cf6', '#0369a1', '#ef4444', '#f59e0b', '#ef4444'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // MMMU Chart
+        const mmmuCtx = document.getElementById('mmmuChart').getContext('2d');
+        new Chart(mmmuCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Grok 4', 'QVQ-72B', 'GPT-4o', 'Gemini 2.5 Pro', 'Claude Opus 4'],
+                datasets: [{
+                    data: [76.5, 70.3, 69.1, 68.4, 67.8],
+                    backgroundColor: ['#0369a1', '#f59e0b', '#ef4444', '#34d399', '#8b5cf6'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // MathVista Chart
+        const mathVistaCtx = document.getElementById('mathVistaChart').getContext('2d');
+        new Chart(mathVistaCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Gemini 2.5 Pro', 'GPT-4o', 'Claude Opus 4', 'Grok 4', 'QVQ-72B'],
+                datasets: [{
+                    data: [73.2, 71.8, 69.5, 68.7, 67.1],
+                    backgroundColor: ['#34d399', '#ef4444', '#8b5cf6', '#0369a1', '#f59e0b'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // AI2D Chart
+        const ai2dCtx = document.getElementById('ai2dChart').getContext('2d');
+        new Chart(ai2dCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Gemini 2.5 Pro', 'Claude Opus 4', 'Grok 4', 'QVQ-72B'],
+                datasets: [{
+                    data: [84.6, 83.2, 81.9, 80.5, 79.3],
+                    backgroundColor: ['#ef4444', '#34d399', '#8b5cf6', '#0369a1', '#f59e0b'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 90,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // ChartQA Chart
+        const chartQACtx = document.getElementById('chartQAChart').getContext('2d');
+        new Chart(chartQACtx, {
+            type: 'bar',
+            data: {
+                labels: ['Gemini 2.5 Pro', 'GPT-4o', 'Claude Opus 4', 'Grok 4', 'QVQ-72B'],
+                datasets: [{
+                    data: [78.9, 77.4, 75.6, 74.2, 72.8],
+                    backgroundColor: ['#34d399', '#ef4444', '#8b5cf6', '#0369a1', '#f59e0b'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // TimeScope Chart
+        const timeScopeCtx = document.getElementById('timeScopeChart').getContext('2d');
+        new Chart(timeScopeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Gemini 2.5 Pro', 'Claude Opus 4', 'Grok 4', 'QVQ-72B'],
+                datasets: [{
+                    data: [65.8, 63.4, 61.2, 59.7, 58.3],
+                    backgroundColor: ['#ef4444', '#34d399', '#8b5cf6', '#0369a1', '#f59e0b'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 70,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // POPE Chart
+        const popeCtx = document.getElementById('popeChart').getContext('2d');
+        new Chart(popeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude Opus 4', 'GPT-4o', 'Gemini 2.5 Pro', 'Grok 4', 'QVQ-72B'],
+                datasets: [{
+                    data: [89.7, 88.3, 87.1, 85.9, 84.5],
+                    backgroundColor: ['#8b5cf6', '#ef4444', '#34d399', '#0369a1', '#f59e0b'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // Image Generation Chart
+        const imageGenCtx = document.getElementById('imageGenChart').getContext('2d');
+        new Chart(imageGenCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Flux Pro', 'DALL-E 3', 'Midjourney v6', 'Stable Diffusion 3', 'Red Panda AI'],
+                datasets: [{
+                    data: [8.2, 9.1, 9.8, 11.3, 12.7],
+                    backgroundColor: ['#16a34a', '#ef4444', '#8b5cf6', '#f59e0b', '#ec4899'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 15,
+                        ticks: { callback: value => value + ' FID' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // CLIP Score Chart
+        const clipCtx = document.getElementById('clipChart').getContext('2d');
+        new Chart(clipCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Flux Pro', 'DALL-E 3', 'Midjourney v6', 'Stable Diffusion 3', 'Red Panda AI'],
+                datasets: [{
+                    data: [0.89, 0.87, 0.85, 0.82, 0.79],
+                    backgroundColor: ['#16a34a', '#ef4444', '#8b5cf6', '#f59e0b', '#ec4899'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 1,
+                        ticks: { callback: value => value.toFixed(2) }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // Video Generation Chart
+        const videoGenCtx = document.getElementById('videoGenChart').getContext('2d');
+        new Chart(videoGenCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Kling 2.1', 'Google Veo', 'Luma Dream Machine', 'Runway Gen-3', 'Hunyuan Video'],
+                datasets: [{
+                    data: [87.3, 85.6, 82.9, 81.4, 78.7],
+                    backgroundColor: ['#16a34a', '#34d399', '#0369a1', '#8b5cf6', '#f59e0b'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // AIGV Chart
+        const aigvCtx = document.getElementById('aigvChart').getContext('2d');
+        new Chart(aigvCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Kling 2.1', 'Google Veo', 'Luma Dream Machine', 'Runway Gen-3', 'Hunyuan Video'],
+                datasets: [{
+                    data: [4.2, 4.0, 3.8, 3.6, 3.4],
+                    backgroundColor: ['#16a34a', '#34d399', '#0369a1', '#8b5cf6', '#f59e0b'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 5,
+                        ticks: { callback: value => value + '/5' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // PhyWorld Chart
+        const phyWorldCtx = document.getElementById('phyWorldChart').getContext('2d');
+        new Chart(phyWorldCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Google Veo', 'Kling 2.1', 'Luma Dream Machine', 'Runway Gen-3', 'Hunyuan Video'],
+                datasets: [{
+                    data: [76.8, 74.2, 71.5, 69.3, 66.7],
+                    backgroundColor: ['#34d399', '#16a34a', '#0369a1', '#8b5cf6', '#f59e0b'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        ticks: { callback: value => value + '%' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
         });
     </script>
 </body>

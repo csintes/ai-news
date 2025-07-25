@@ -91,29 +91,9 @@
             color: #1a1a1a;
         }
         
-        .live-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: #f0f9ff;
-            padding: 6px 12px;
-            border-radius: 16px;
-            font-size: 12px;
-            color: #0369a1;
-            border: 1px solid #e0f2fe;
-        }
-        
-        .pulse {
-            width: 6px;
-            height: 6px;
-            background: #10b981;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        .nav-links a.active {
+            color: #1a1a1a;
+            font-weight: 500;
         }
         
         /* Main */
@@ -145,10 +125,59 @@
             margin-right: auto;
         }
         
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-bottom: 32px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 4px;
+        }
+        
+        .last-update {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f0f9ff;
+            padding: 8px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            color: #0369a1;
+            border: 1px solid #e0f2fe;
+        }
+        
+        .pulse {
+            width: 6px;
+            height: 6px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
         /* Search */
         .search-container {
-            max-width: 480px;
-            margin: 0 auto 40px;
+            max-width: 600px;
+            margin: 0 auto 64px;
             position: relative;
         }
         
@@ -160,7 +189,6 @@
             font-size: 16px;
             background: white;
             transition: all 0.2s ease;
-            font-family: inherit;
         }
         
         .search-input:focus {
@@ -174,61 +202,42 @@
             left: 16px;
             top: 50%;
             transform: translateY(-50%);
-            color: #999;
-        }
-        
-        /* Stats */
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 48px;
-        }
-        
-        .stat {
-            background: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 14px;
             color: #666;
-            border: 1px solid #e5e5e5;
-            font-weight: 500;
         }
         
-        /* Filter tabs */
-        .filter-tabs {
+        /* Filters */
+        .filters {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 16px;
             margin-bottom: 64px;
+            flex-wrap: wrap;
         }
         
-        .filter-tab {
+        .filter-btn {
             padding: 8px 16px;
             border: 1px solid #e5e5e5;
-            border-radius: 8px;
+            border-radius: 20px;
             background: white;
             color: #666;
             font-size: 14px;
-            font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
-            font-family: inherit;
         }
         
-        .filter-tab:hover {
+        .filter-btn:hover {
             border-color: #1a1a1a;
             color: #1a1a1a;
         }
         
-        .filter-tab.active {
+        .filter-btn.active {
             background: #1a1a1a;
             color: white;
             border-color: #1a1a1a;
         }
         
-        /* Sections */
-        .section {
+        /* News sections */
+        .news-section {
             margin-bottom: 80px;
         }
         
@@ -264,7 +273,11 @@
             color: #be185d;
         }
         
-        .section h2 {
+        .section-title {
+            flex: 1;
+        }
+        
+        .section-title h2 {
             font-size: 32px;
             font-weight: 600;
             color: #1a1a1a;
@@ -273,30 +286,25 @@
         }
         
         .section-count {
-            margin-left: 16px;
-            background: #f5f5f5;
             color: #666;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 500;
+            font-size: 14px;
+            margin-top: 4px;
         }
         
         /* News grid */
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 24px;
         }
         
-        /* News card */
         .news-card {
             background: white;
             border: 1px solid #e5e5e5;
             border-radius: 12px;
             padding: 24px;
             transition: all 0.2s ease;
-            position: relative;
+            cursor: pointer;
         }
         
         .news-card:hover {
@@ -311,57 +319,156 @@
             color: #1a1a1a;
             margin-bottom: 12px;
             line-height: 1.4;
-            letter-spacing: -0.01em;
         }
         
         .news-card p {
             color: #666;
             font-size: 14px;
+            margin-bottom: 16px;
             line-height: 1.5;
-            margin-bottom: 20px;
         }
         
-        .news-card-footer {
+        .news-meta {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
         }
         
         .engagement {
             display: flex;
             align-items: center;
-            gap: 6px;
-            background: #f5f5f5;
-            padding: 6px 10px;
-            border-radius: 6px;
+            gap: 16px;
             font-size: 12px;
-            color: #666;
-            font-weight: 500;
+            color: #999;
         }
         
-        .engagement-icon {
-            width: 12px;
-            height: 12px;
-        }
-        
-        .read-more {
-            color: #1a1a1a;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
+        .engagement-item {
             display: flex;
             align-items: center;
             gap: 4px;
-            transition: opacity 0.2s ease;
         }
         
-        .read-more:hover {
-            opacity: 0.7;
+        .see-more {
+            color: #0369a1;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
         
-        .read-more-icon {
-            width: 14px;
-            height: 14px;
+        .see-more:hover {
+            color: #1e40af;
+        }
+        
+        /* Expanded content */
+        .expanded-content {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #f5f5f5;
+        }
+        
+        .expanded-content.show {
+            display: block;
+        }
+        
+        .full-article {
+            margin-bottom: 24px;
+        }
+        
+        .full-article h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+        
+        .full-article p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .source-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #0369a1;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+        
+        .source-link:hover {
+            color: #1e40af;
+        }
+        
+        .related-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+        
+        .related-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.2s ease;
+        }
+        
+        .related-item:hover {
+            background: #f0f0f0;
+        }
+        
+        .related-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        
+        .related-icon.twitter {
+            background: #1da1f2;
+            color: white;
+        }
+        
+        .related-icon.youtube {
+            background: #ff0000;
+            color: white;
+        }
+        
+        .related-icon.article {
+            background: #666;
+            color: white;
+        }
+        
+        .related-text {
+            flex: 1;
+        }
+        
+        .related-text .title {
+            font-weight: 500;
+            font-size: 14px;
+            color: #1a1a1a;
+            margin-bottom: 2px;
+        }
+        
+        .related-text .meta {
+            font-size: 12px;
+            color: #666;
         }
         
         /* CTA */
@@ -397,12 +504,12 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 14px;
             transition: all 0.2s ease;
         }
         
         .cta-button:hover {
             background: #f5f5f5;
+            transform: translateY(-1px);
         }
         
         /* Footer */
@@ -467,15 +574,6 @@
             font-size: 12px;
         }
         
-        .last-update {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #10b981;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -486,6 +584,10 @@
                 font-size: 18px;
             }
             
+            .stats {
+                gap: 24px;
+            }
+            
             .nav-links {
                 display: none;
             }
@@ -494,9 +596,8 @@
                 grid-template-columns: 1fr;
             }
             
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
+            .filters {
+                gap: 8px;
             }
             
             .container {
@@ -506,12 +607,9 @@
             .main {
                 padding: 48px 0;
             }
-            
-            .section {
-                margin-bottom: 48px;
-            }
         }
         
+        /* Hidden class for filtering */
         .hidden {
             display: none !important;
         }
@@ -529,13 +627,9 @@
                 </a>
                 
                 <div class="nav-links">
-                    <a href="#inicio">Inicio</a>
+                    <a href="#" class="active">Inicio</a>
                     <a href="benchmarks/index.html">Benchmarks</a>
                     <a href="#archivo">Archivo</a>
-                    <div class="live-indicator">
-                        <div class="pulse"></div>
-                        <span>En vivo</span>
-                    </div>
                 </div>
             </nav>
         </div>
@@ -547,436 +641,716 @@
                 <h1>Actualización diaria de IA</h1>
                 <p>Resumen de las noticias más relevantes del último día (25/07/2025)</p>
                 
-                <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Buscar noticias..." id="searchInput">
-                    <div class="search-icon">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number">20</span>
+                        <div class="stat-label">noticias destacadas</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4</span>
+                        <div class="stat-label">categorías</div>
                     </div>
                 </div>
                 
-                <div class="stats">
-                    <div class="stat">20 noticias destacadas</div>
-                    <div class="stat">Actualizado hace 2 horas</div>
-                </div>
-                
-                <div class="filter-tabs">
-                    <button class="filter-tab active" data-filter="all">Todas</button>
-                    <button class="filter-tab" data-filter="general">General</button>
-                    <button class="filter-tab" data-filter="technical">Técnico</button>
-                    <button class="filter-tab" data-filter="art">Arte</button>
+                <div class="last-update">
+                    <div class="pulse"></div>
+                    <span>Actualizado hace 2 horas</span>
                 </div>
             </section>
 
-            <!-- General Section -->
-            <section class="section" data-category="general">
+            <div class="search-container">
+                <div class="search-icon">🔍</div>
+                <input type="text" class="search-input" placeholder="Buscar noticias..." id="searchInput">
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-category="all">Todas</button>
+                <button class="filter-btn" data-category="general">General</button>
+                <button class="filter-btn" data-category="technical">Técnico</button>
+                <button class="filter-btn" data-category="art">Arte</button>
+            </div>
+
+            <!-- General News -->
+            <section class="news-section" data-category="general">
                 <div class="section-header">
-                    <div class="section-icon general">🌐</div>
-                    <h2>General</h2>
-                    <span class="section-count">10 noticias</span>
+                    <div class="section-icon general">📊</div>
+                    <div class="section-title">
+                        <h2>Noticias Generales</h2>
+                        <div class="section-count">10 noticias</div>
+                    </div>
                 </div>
                 
                 <div class="news-grid">
                     <article class="news-card">
                         <h3>OpenAI planea lanzar GPT-5 en agosto con variantes Big, Medium y Nano</h3>
                         <p>OpenAI se prepara para lanzar GPT-5 a principios de agosto de 2025, tras retrasos para pruebas adicionales. El modelo incluirá tres variantes de diferentes tamaños y capacidades.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                3,802
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>8.4K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>342</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>127</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>Según múltiples fuentes, OpenAI está finalizando los preparativos para el lanzamiento de GPT-5 en agosto de 2025. El modelo representará un salto significativo en capacidades, combinando las fortalezas de razonamiento de la serie o3 con la versatilidad de la familia GPT.</p>
+                                <p>Las tres variantes anunciadas son: GPT-5 Big (para usuarios Pro), GPT-5 Medium (para usuarios Plus) y GPT-5 Nano (gratuito para todos). También se rumora una versión open-weight llamada "Starfish".</p>
+                                <a href="https://www.theverge.com/notepad-microsoft-newsletter/712950/openai-gpt-5-model-release-date-notepad" class="source-link" target="_blank">
+                                    🔗 Leer artículo completo en The Verge
+                                </a>
+                            </div>
+                            <div class="related-content">
+                                <h4>Contenido relacionado</h4>
+                                <a href="https://twitter.com/axios/status/1948448604890223002" class="related-item" target="_blank">
+                                    <div class="related-icon twitter">𝕏</div>
+                                    <div class="related-text">
+                                        <div class="title">Tweet de Axios sobre GPT-5</div>
+                                        <div class="meta">8,405 visualizaciones • @axios</div>
+                                    </div>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=0jDsWemXi3U" class="related-item" target="_blank">
+                                    <div class="related-icon youtube">▶</div>
+                                    <div class="related-text">
+                                        <div class="title">New GPT-5 Details Just Changed Everything</div>
+                                        <div class="meta">TheAiGrid • 12 horas</div>
+                                    </div>
+                                </a>
+                                <a href="https://mashable.com/article/chatgpt-5-release-date" class="related-item" target="_blank">
+                                    <div class="related-icon article">📄</div>
+                                    <div class="related-text">
+                                        <div class="title">OpenAI's GPT-5 could be coming in August</div>
+                                        <div class="meta">Mashable • 15 horas</div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>OpenAI y Oracle firman contrato de $30 mil millones anuales</h3>
                         <p>OpenAI y Oracle expandirán su alianza con 4.5 gigawatts adicionales de capacidad de centros de datos, prometiendo cientos de miles de millones en inversión.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                2,547
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>6.2K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>198</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>89</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>OpenAI ha confirmado oficialmente que es la empresa detrás del masivo contrato anual de $30 mil millones con Oracle para servicios de centros de datos. Este acuerdo representa el mayor contrato de infraestructura en la historia de la IA.</p>
+                                <p>El acuerdo asegura 4.5 gigawatts de capacidad y es parte del ambicioso proyecto Stargate, que busca crear la infraestructura necesaria para el desarrollo de AGI (Inteligencia General Artificial).</p>
+                                <a href="https://www.wsj.com/tech/ai/softbank-openai-a3dc57b4" class="source-link" target="_blank">
+                                    🔗 Leer artículo completo en WSJ
+                                </a>
+                            </div>
+                            <div class="related-content">
+                                <h4>Contenido relacionado</h4>
+                                <a href="https://twitter.com/FransBakker9812/status/1947644687478886605" class="related-item" target="_blank">
+                                    <div class="related-icon twitter">𝕏</div>
+                                    <div class="related-text">
+                                        <div class="title">Stargate advances with 4.5 GW partnership</div>
+                                        <div class="meta">@FransBakker9812 • 3 días</div>
+                                    </div>
+                                </a>
+                                <a href="https://www.linkedin.com/pulse/openais-30b-deal-oracle-shakes-cloud-economy-its-core-genai-works-m0w2c" class="related-item" target="_blank">
+                                    <div class="related-icon article">📄</div>
+                                    <div class="related-text">
+                                        <div class="title">OpenAI's $30B Deal Shakes Cloud Economy</div>
+                                        <div class="meta">LinkedIn • 2 días</div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>Microsoft contrata 24 ejecutivos de DeepMind de Google</h3>
                         <p>Microsoft ha reforzado significativamente sus capacidades de IA contratando 24 especialistas del laboratorio de investigación DeepMind de Google, incluyendo a Amar Subramanya como nuevo VP de IA.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                2,234
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>5.8K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>156</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>73</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>En una escalada significativa de la guerra por el talento en IA, Microsoft ha contratado a 24 ex empleados de DeepMind en los últimos seis meses. Entre los fichajes destacados está Amar Subramanya, ingeniero de origen indio con 16 años de experiencia en Google.</p>
+                                <p>Estos nuevos empleados se unen al equipo de IA de Microsoft liderado por Mustafa Suleyman, quien reporta directamente al CEO Satya Nadella. El movimiento busca fortalecer las capacidades de Copilot y competir más efectivamente con Google en el espacio de IA.</p>
+                                <a href="https://www.cnbc.com/2025/07/22/microsoft-google-deepmind-ai-talent.html" class="source-link" target="_blank">
+                                    🔗 Leer artículo completo en CNBC
+                                </a>
+                            </div>
+                            <div class="related-content">
+                                <h4>Contenido relacionado</h4>
+                                <a href="https://www.ft.com/content/9e6b3d89-e47a-40e1-b737-2792370c4b00" class="related-item" target="_blank">
+                                    <div class="related-icon article">📄</div>
+                                    <div class="related-text">
+                                        <div class="title">Microsoft poaches top Google DeepMind staff</div>
+                                        <div class="meta">Financial Times • 3 días</div>
+                                    </div>
+                                </a>
+                                <a href="https://www.instagram.com/p/DMbLPuNTXKD/" class="related-item" target="_blank">
+                                    <div class="related-icon article">📄</div>
+                                    <div class="related-text">
+                                        <div class="title">Microsoft hired 24+ former DeepMind employees</div>
+                                        <div class="meta">Instagram • 3 días</div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>Meta invierte $14.3 mil millones en Scale AI</h3>
                         <p>Meta realiza una inversión masiva en Scale AI, que posteriormente anuncia despidos de 200 empleados y 500 contratistas un mes después de la inversión.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                2,089
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>4.1K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>287</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>92</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>En una inversión estratégica masiva, Meta ha invertido $14.3 mil millones en Scale AI, una empresa especializada en etiquetado de datos para entrenar modelos de inteligencia artificial. La inversión busca asegurar el suministro de datos de alta calidad para los futuros modelos de Meta.</p>
+                                <p>Sin embargo, la inversión ha sido seguida por una reestructuración en Scale AI, que anunció el despido de 200 empleados de tiempo completo y 500 contratistas, generando controversia sobre la gestión de recursos tras la inversión.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>Sam Altman advierte sobre una "crisis de fraude" con IA</h3>
                         <p>El CEO de OpenAI alerta que el mundo podría estar al borde de una "crisis de fraude" debido a cómo la inteligencia artificial podría permitir a actores maliciosos engañar a las personas.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                1,876
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>7.3K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>423</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>156</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>En una advertencia preocupante, Sam Altman ha expresado su inquietud sobre el potencial de la IA para facilitar fraudes a gran escala. Según el CEO de OpenAI, la capacidad de los modelos de IA para generar contenido convincente podría ser explotada por actores maliciosos.</p>
+                                <p>Altman enfatiza la necesidad de desarrollar sistemas de detección robustos y marcos regulatorios apropiados antes de que la tecnología sea ampliamente accesible, especialmente con el próximo lanzamiento de GPT-5.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>Meta construye el centro de datos de IA más grande del mundo</h3>
                         <p>Meta anuncia "Prometheus", un centro de datos de IA del tamaño de Manhattan que será tan grande como Mumbai y entregará capacidades de superinteligencia.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                1,823
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>9.2K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>234</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>178</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>Meta ha anunciado la construcción de "Prometheus", que será el centro de datos de IA más grande jamás construido. Con un tamaño comparable al de Manhattan, este masivo complejo de infraestructura está diseñado para soportar el entrenamiento de modelos de superinteligencia artificial.</p>
+                                <p>El proyecto representa una inversión de cientos de miles de millones de dólares y marca la apuesta más agresiva de Meta en la carrera hacia la AGI (Inteligencia General Artificial).</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>OpenAI busca más financiación tras quemar $40 mil millones</h3>
                         <p>Apenas meses después de completar una ronda de financiación de $40 mil millones, OpenAI está reabriendo los libros en busca de más dinero según reportes.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                1,654
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>6.7K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>389</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>145</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>OpenAI está buscando activamente nueva financiación después de haber gastado rápidamente los $40 mil millones recaudados en su última ronda. Los altos costos de entrenamiento de GPT-5 y la expansión de infraestructura han acelerado el consumo de capital.</p>
+                                <p>La empresa está en conversaciones con múltiples inversores institucionales para una nueva ronda que podría valorar la compañía en más de $200 mil millones, consolidando su posición como la startup de IA más valiosa del mundo.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>ChatGPT Web Agent genera advertencias de privacidad</h3>
                         <p>El nuevo agente de ChatGPT puede navegar sitios web, leer emails y gestionar cuentas para usuarios, pero puede ser vulnerable a inyección de prompts.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                1,543
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>3.9K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>267</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>98</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>OpenAI ha lanzado una nueva funcionalidad que permite a ChatGPT actuar como un agente web, capaz de navegar sitios web, leer correos electrónicos y realizar tareas en nombre del usuario. Sin embargo, expertos en seguridad han identificado vulnerabilidades potenciales.</p>
+                                <p>Las principales preocupaciones incluyen la posibilidad de inyección de prompts maliciosos a través de contenido web y el acceso no autorizado a información sensible. OpenAI está trabajando en medidas de seguridad adicionales.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>A.R. Rahman se reúne con Sam Altman para proyecto secreto</h3>
                         <p>El compositor mundialmente reconocido A.R. Rahman se reunió recientemente con el CEO de OpenAI Sam Altman para explorar cómo empoderar a los creadores indios mediante el uso de IA.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                1,234
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>2.8K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>134</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>67</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>El legendario compositor A.R. Rahman, ganador de dos premios Oscar, se ha reunido con Sam Altman para discutir un proyecto colaborativo que busca empoderar a los creadores de contenido indios utilizando tecnología de IA.</p>
+                                <p>Aunque los detalles específicos del proyecto permanecen en secreto, fuentes cercanas sugieren que podría involucrar herramientas de IA especializadas para la composición musical y la producción de contenido cultural indio.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>40+ investigadores de IA emiten advertencia conjunta</h3>
                         <p>Más de 40 investigadores de OpenAI, Google DeepMind, Anthropic y Meta se unen para emitir una rara advertencia conjunta: la ventana para entender cómo funciona la IA se está cerrando.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                2,012
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>8.9K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>456</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>234</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>En una declaración conjunta sin precedentes, más de 40 investigadores líderes de las principales empresas de IA han advertido que la ventana de oportunidad para entender y controlar los sistemas de IA avanzados se está cerrando rápidamente.</p>
+                                <p>Los investigadores enfatizan la urgente necesidad de mayor investigación en interpretabilidad y alineación de IA antes de que los modelos se vuelvan demasiado complejos para ser completamente comprendidos por los humanos.</p>
+                            </div>
                         </div>
                     </article>
                 </div>
             </section>
 
-            <!-- Technical Section -->
-            <section class="section" data-category="technical">
+            <!-- Technical News -->
+            <section class="news-section" data-category="technical">
                 <div class="section-header">
-                    <div class="section-icon technical">⚙️</div>
-                    <h2>Técnico</h2>
-                    <span class="section-count">5 noticias</span>
+                    <div class="section-icon technical">🔬</div>
+                    <div class="section-title">
+                        <h2>Noticias Técnicas</h2>
+                        <div class="section-count">5 noticias</div>
+                    </div>
                 </div>
                 
                 <div class="news-grid">
                     <article class="news-card">
                         <h3>Anthropic lanza Claude Opus 4 y Sonnet 4</h3>
                         <p>Anthropic presenta la próxima generación: Claude Opus 4 es su modelo más poderoso hasta ahora, y el mejor modelo de codificación del mundo.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                1,876
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>7.8K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>298</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>167</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>Anthropic ha lanzado oficialmente Claude Opus 4 y Claude Sonnet 4, marcando un salto significativo en las capacidades de sus modelos de IA. Claude Opus 4 se posiciona como el modelo más poderoso de Anthropic hasta la fecha, superando a GPT-4o en múltiples benchmarks.</p>
+                                <p>Particularmente notable es su rendimiento en tareas de codificación, donde ha establecido nuevos récords en HumanEval (94.2%) y SWE-Bench Verified (75.0%), consolidándose como el mejor modelo de codificación disponible comercialmente.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>Claude Code permite subagentes que trabajan en equipo</h3>
                         <p>Los equipos de Anthropic usan Claude Code para flujos de trabajo de desarrollo, desde depuración hasta asistencia de código, con subagentes que actúan como arquitectos de software coordinados.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                1,432
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>5.4K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>187</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>94</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>Anthropic ha introducido Claude Code, una funcionalidad revolucionaria que permite crear subagentes especializados que trabajan de manera coordinada en proyectos de desarrollo de software. Estos subagentes pueden actuar como arquitectos de software, revisores de código y especialistas en QA.</p>
+                                <p>La característica permite flujos de trabajo complejos donde diferentes subagentes se especializan en tareas específicas, desde el diseño de arquitectura hasta la implementación y testing, mejorando significativamente la productividad del desarrollo.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>Aeneas: IA de DeepMind descifra inscripciones romanas</h3>
                         <p>DeepMind presenta Aeneas, un modelo de IA que ayuda a historiadores a restaurar, fechar y contextualizar textos antiguos fragmentados más rápidamente.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                1,234
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>4.2K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>156</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>78</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>DeepMind ha desarrollado Aeneas, un modelo de IA especializado en el análisis y restauración de inscripciones del Imperio Romano. El sistema puede contextualizar inscripciones fragmentadas comparando con textos similares y acelerando décadas de trabajo arqueológico.</p>
+                                <p>Aeneas utiliza técnicas avanzadas de procesamiento de lenguaje natural adaptadas para latín antiguo y puede identificar patrones históricos, fechas y contextos culturales que los historiadores tardarían años en descifrar manualmente.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>DeepMind logra medalla de oro en Olimpiada de Matemáticas</h3>
                         <p>La IA de DeepMind ha logrado un progreso notable en razonamiento matemático, ganando una medalla de oro en la Olimpiada Internacional de Matemáticas tras resolver problemas de nivel mundial.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                1,654
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>9.1K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>367</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>198</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>En un hito histórico para la IA, el modelo de DeepMind ha logrado una medalla de oro en la Olimpiada Internacional de Matemáticas 2025, resolviendo problemas que desafían a los mejores estudiantes de matemáticas del mundo.</p>
+                                <p>Este logro representa un avance significativo en las capacidades de razonamiento matemático de la IA, demostrando que los modelos pueden no solo resolver problemas complejos sino también desarrollar estrategias creativas de resolución.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>Anthropic desarrolla agentes de auditoría de alineación</h3>
                         <p>Anthropic presenta agentes de auditoría para probar problemas de desalineación en IA, desarrollados mientras probaban Claude Opus 4 para problemas de alineación.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                1,087
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>3.7K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>189</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>87</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>Anthropic ha desarrollado una nueva clase de agentes de IA especializados en auditar y detectar problemas de alineación en modelos de lenguaje grandes. Estos agentes fueron creados como parte del proceso de testing de seguridad para Claude Opus 4.</p>
+                                <p>Los agentes de auditoría pueden identificar comportamientos potencialmente problemáticos, sesgos ocultos y desalineaciones sutiles que podrían pasar desapercibidas en evaluaciones tradicionales, representando un avance importante en la seguridad de IA.</p>
+                            </div>
                         </div>
                     </article>
                 </div>
             </section>
 
-            <!-- Art Section -->
-            <section class="section" data-category="art">
+            <!-- Art News -->
+            <section class="news-section" data-category="art">
                 <div class="section-header">
                     <div class="section-icon art">🎨</div>
-                    <h2>Arte</h2>
-                    <span class="section-count">5 noticias</span>
+                    <div class="section-title">
+                        <h2>Arte y Creatividad</h2>
+                        <div class="section-count">5 noticias</div>
+                    </div>
                 </div>
                 
                 <div class="news-grid">
                     <article class="news-card">
                         <h3>Obra de arte de Messi generada por IA se vende por $1.8 millones</h3>
                         <p>Refik Anadol convierte el gol icónico de Lionel Messi en arte digital generado por IA, vendido por 1.8 millones de dólares en una subasta de arte digital.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                934
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>6.3K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>234</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>123</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>El reconocido artista digital Refik Anadol ha creado una obra de arte generada por IA basada en el icónico gol de Lionel Messi en la final del Mundial 2022. La pieza, titulada "The Moment of Dreams", se vendió por $1.8 millones en una subasta de arte digital.</p>
+                                <p>La obra utiliza algoritmos de IA para reinterpretar el momento del gol a través de miles de variaciones visuales, creando una experiencia inmersiva que captura la emoción y el significado histórico del momento.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>Robot humanoide Ai-Da pinta retrato del Rey Carlos III</h3>
                         <p>Un robot humanoide de IA llamado Ai-Da ha pintado un retrato del Rey Carlos III. La obra fue recientemente exhibida en la ONU, marcando un hito en el arte robótico.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                876
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>4.8K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>178</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>89</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>Ai-Da, el primer robot artista humanoide del mundo, ha completado un retrato oficial del Rey Carlos III utilizando sus capacidades de visión artificial y brazos robóticos para pintar. La obra representa un hito en la intersección entre arte, tecnología y protocolo real.</p>
+                                <p>El retrato fue exhibido en las Naciones Unidas como parte de una exposición sobre el futuro del arte y la creatividad artificial, generando debates sobre la naturaleza de la creatividad y la autoría artística.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>Google Photos añade herramientas gratuitas de IA para crear videos</h3>
                         <p>Google Photos ahora ofrece herramientas gratuitas de IA para convertir imágenes fijas en videos cortos y estilos artísticos como anime o bocetos, con funciones Photo-to-Video y Remix.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                823
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>5.2K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>167</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>94</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>Google ha lanzado nuevas herramientas de IA en Google Photos que permiten a los usuarios convertir fotografías estáticas en videos cortos y aplicar estilos artísticos diversos. Las funciones "Photo-to-Video" y "Remix" están disponibles gratuitamente para todos los usuarios.</p>
+                                <p>Las herramientas pueden transformar fotos en estilos como anime, bocetos, acuarelas y arte pop, democratizando la creación de contenido artístico y permitiendo a usuarios sin experiencia técnica crear contenido visual sofisticado.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>Meta AI en WhatsApp tendrá modo de voz en tiempo real</h3>
                         <p>Los desarrolladores de Meta están probando un nuevo modo de voz en tiempo real para Meta AI dentro de WhatsApp, que podría funcionar de manera similar al Modo Live de Gemini.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                756
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>3.9K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>145</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>72</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>Meta está desarrollando una nueva funcionalidad de voz en tiempo real para Meta AI que se integrará directamente en WhatsApp. Esta característica permitirá conversaciones de voz fluidas y naturales con el asistente de IA, similar al Modo Live de Google Gemini.</p>
+                                <p>La funcionalidad promete revolucionar la interacción con IA en aplicaciones de mensajería, permitiendo conversaciones más naturales y accesibles, especialmente para usuarios que prefieren la comunicación por voz sobre el texto.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <h3>Samsung invierte $8M en startup de análisis de video con IA</h3>
                         <p>Memories.ai, una startup especializada en análisis de video basado en IA, ha recaudado $8 millones en una ronda semilla liderada por Susa Ventures con participación de Samsung.</p>
-                        <div class="news-card-footer">
+                        <div class="news-meta">
                             <div class="engagement">
-                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                634
+                                <div class="engagement-item">
+                                    <span>🔥</span>
+                                    <span>2.7K</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>💬</span>
+                                    <span>98</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <span>🔗</span>
+                                    <span>45</span>
+                                </div>
                             </div>
-                            <a href="#" class="read-more">
-                                Leer más
-                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a href="#" class="see-more" onclick="toggleExpanded(this, event)">Ver más</a>
+                        </div>
+                        <div class="expanded-content">
+                            <div class="full-article">
+                                <h4>Detalles completos</h4>
+                                <p>Memories.ai ha cerrado una ronda de financiación semilla de $8 millones liderada por Susa Ventures, con participación estratégica de Samsung Ventures. La startup desarrolla tecnología de IA para análisis automático de contenido de video y creación de resúmenes inteligentes.</p>
+                                <p>La plataforma utiliza algoritmos avanzados de visión por computadora para identificar momentos clave en videos, crear highlights automáticos y generar metadatos semánticos, con aplicaciones en entretenimiento, educación y marketing digital.</p>
+                            </div>
                         </div>
                     </article>
                 </div>
@@ -986,11 +1360,9 @@
             <section class="cta">
                 <h3>¿Quieres ver más detalles técnicos?</h3>
                 <p>Explora nuestros benchmarks actualizados de modelos de IA</p>
+                
                 <a href="benchmarks/index.html" class="cta-button">
-                    Ver Benchmarks
-                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
+                    📊 Ver Benchmarks
                 </a>
             </section>
         </div>
@@ -1002,90 +1374,97 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>AI News</h4>
-                    <p>Tu fuente diaria de noticias sobre Inteligencia Artificial. Manténte al día con los últimos avances, investigaciones y desarrollos en el mundo de la IA.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Enlaces</h4>
-                    <ul class="footer-links">
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="benchmarks/index.html">Benchmarks</a></li>
-                        <li><a href="#archivo">Archivo</a></li>
-                        <li><a href="rss.xml">RSS</a></li>
-                    </ul>
+                    <p>Tu fuente diaria de noticias sobre inteligencia artificial. Mantenemos informada a la comunidad hispanohablante sobre los avances más importantes en IA.</p>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Categorías</h4>
                     <ul class="footer-links">
-                        <li><a href="#general">General</a></li>
+                        <li><a href="#general">Noticias Generales</a></li>
                         <li><a href="#technical">Técnico</a></li>
-                        <li><a href="#art">Arte</a></li>
-                        <li><a href="#research">Investigación</a></li>
+                        <li><a href="#art">Arte y Creatividad</a></li>
+                        <li><a href="benchmarks/index.html">Benchmarks</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#archivo">Archivo</a></li>
+                        <li><a href="#metodologia">Metodología</a></li>
+                        <li><a href="#fuentes">Fuentes</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>© 2025 AI News. Generado automáticamente el 25/07/2025.</p>
+                <p>© 2025 AI News. Datos actualizados el 25/07/2025.</p>
                 <div class="last-update">
                     <div class="pulse"></div>
-                    <span>Última actualización: Hace 2 horas</span>
+                    <span>Próxima actualización: 26/07/2025</span>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Filter functionality
-        const filterTabs = document.querySelectorAll('.filter-tab');
-        const sections = document.querySelectorAll('[data-category]');
-        
-        filterTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                const filter = this.getAttribute('data-filter');
-                
-                filterTabs.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                if (filter === 'all') {
-                    sections.forEach(section => {
-                        section.style.display = 'block';
-                        section.classList.remove('hidden');
-                    });
-                } else {
-                    sections.forEach(section => {
-                        const category = section.getAttribute('data-category');
-                        if (category === filter) {
-                            section.style.display = 'block';
-                            section.classList.remove('hidden');
-                        } else {
-                            section.style.display = 'none';
-                            section.classList.add('hidden');
-                        }
-                    });
-                }
-            });
-        });
-
         // Search functionality
         const searchInput = document.getElementById('searchInput');
+        const newsCards = document.querySelectorAll('.news-card');
         
-        searchInput.addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
-            const newsCards = document.querySelectorAll('.news-card');
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
             
             newsCards.forEach(card => {
                 const title = card.querySelector('h3').textContent.toLowerCase();
-                const description = card.querySelector('p').textContent.toLowerCase();
+                const content = card.querySelector('p').textContent.toLowerCase();
                 
-                if (title.includes(query) || description.includes(query)) {
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
                     card.style.display = 'block';
                 } else {
-                    card.style.display = query === '' ? 'block' : 'none';
+                    card.style.display = 'none';
                 }
             });
         });
+        
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const newsSections = document.querySelectorAll('.news-section');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                
+                newsSections.forEach(section => {
+                    if (category === 'all' || section.dataset.category === category) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Toggle expanded content
+        function toggleExpanded(element, event) {
+            event.preventDefault();
+            const card = element.closest('.news-card');
+            const expandedContent = card.querySelector('.expanded-content');
+            
+            if (expandedContent.classList.contains('show')) {
+                expandedContent.classList.remove('show');
+                element.textContent = 'Ver más';
+            } else {
+                expandedContent.classList.add('show');
+                element.textContent = 'Ver menos';
+            }
+        }
     </script>
 </body>
 </html>
