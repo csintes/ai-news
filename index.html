@@ -3,412 +3,491 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualización diaria de IA</title>
+    <title>AI News - Actualización diaria de IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: #333;
+            box-sizing: border-box;
         }
         
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafafa;
+            font-size: 16px;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
         }
         
         .nav {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
         
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
         }
         
         .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 10px;
+            width: 32px;
+            height: 32px;
+            background: #000;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: bold;
-            font-size: 20px;
-        }
-        
-        .logo h1 {
-            margin: 0;
-            font-size: 28px;
-            color: #333;
-        }
-        
-        .logo p {
-            margin: 0;
-            color: #666;
+            font-weight: 600;
             font-size: 14px;
+        }
+        
+        .logo-text h1 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0;
         }
         
         .nav-links {
             display: flex;
-            gap: 30px;
             align-items: center;
+            gap: 32px;
         }
         
         .nav-links a {
-            color: #333;
+            color: #666;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 400;
+            font-size: 14px;
+            transition: color 0.2s ease;
         }
         
         .nav-links a:hover {
-            color: #667eea;
+            color: #1a1a1a;
         }
         
-        .live-badge {
-            background: #e8f5e8;
-            padding: 8px 15px;
-            border-radius: 20px;
-            color: #2d5a2d;
-            font-size: 14px;
-            border: 1px solid #c3e6c3;
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f0f9ff;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            color: #0369a1;
+            border: 1px solid #e0f2fe;
         }
         
+        .pulse {
+            width: 6px;
+            height: 6px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Main */
         .main {
-            padding: 40px 0;
+            padding: 80px 0;
         }
         
+        /* Hero */
         .hero {
             text-align: center;
-            margin-bottom: 50px;
-            color: white;
+            margin-bottom: 80px;
         }
         
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            font-size: 56px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
         }
         
         .hero p {
             font-size: 20px;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            color: #666;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
+        /* Search */
         .search-container {
-            max-width: 500px;
-            margin: 0 auto 30px;
+            max-width: 480px;
+            margin: 0 auto 40px;
             position: relative;
         }
         
         .search-input {
             width: 100%;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 25px;
+            padding: 16px 20px 16px 48px;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
             font-size: 16px;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: white;
+            transition: all 0.2s ease;
+            font-family: inherit;
         }
         
         .search-input:focus {
             outline: none;
-            background: white;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            border-color: #1a1a1a;
+            box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
         }
         
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+        
+        /* Stats */
         .stats {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 24px;
+            margin-bottom: 48px;
         }
         
         .stat {
-            background: rgba(255, 255, 255, 0.2);
+            background: white;
             padding: 12px 20px;
-            border-radius: 20px;
-            color: white;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #666;
+            border: 1px solid #e5e5e5;
             font-weight: 500;
         }
         
+        /* Filter tabs */
         .filter-tabs {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 64px;
         }
         
         .filter-tab {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            padding: 8px 16px;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            background: white;
+            color: #666;
+            font-size: 14px;
             font-weight: 500;
             cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
         }
         
         .filter-tab:hover {
-            background: rgba(255, 255, 255, 0.3);
+            border-color: #1a1a1a;
+            color: #1a1a1a;
         }
         
         .filter-tab.active {
-            background: rgba(255, 255, 255, 0.9);
-            color: #667eea;
+            background: #1a1a1a;
+            color: white;
+            border-color: #1a1a1a;
         }
         
-        .content {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
+        /* Sections */
         .section {
-            margin-bottom: 50px;
+            margin-bottom: 80px;
         }
         
         .section-header {
             display: flex;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
         
-        .section-line {
-            width: 5px;
-            height: 40px;
-            border-radius: 3px;
-            margin-right: 20px;
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-size: 20px;
         }
         
-        .section-line.blue {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        .section-icon.general {
+            background: #f0f9ff;
+            color: #0369a1;
         }
         
-        .section-line.purple {
-            background: linear-gradient(135deg, #764ba2, #667eea);
+        .section-icon.technical {
+            background: #f3f4f6;
+            color: #374151;
         }
         
-        .section-line.pink {
-            background: linear-gradient(135deg, #f093fb, #f5576c);
+        .section-icon.art {
+            background: #fdf2f8;
+            color: #be185d;
         }
         
         .section h2 {
             font-size: 32px;
+            font-weight: 600;
+            color: #1a1a1a;
             margin: 0;
-            color: #333;
+            letter-spacing: -0.01em;
         }
         
         .section-count {
-            margin-left: 20px;
-            background: #e8f4fd;
-            color: #1e40af;
-            padding: 6px 15px;
-            border-radius: 15px;
-            font-size: 14px;
-            font-weight: 600;
+            margin-left: 16px;
+            background: #f5f5f5;
+            color: #666;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
         }
         
-        .category-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-        
+        /* News grid */
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 24px;
         }
         
+        /* News card */
         .news-card {
             background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border: 1px solid #f0f0f0;
-            transition: all 0.3s ease;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s ease;
+            position: relative;
         }
         
         .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-color: #1a1a1a;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
         }
         
         .news-card h3 {
             font-size: 18px;
-            margin-bottom: 15px;
-            color: #333;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
             line-height: 1.4;
-        }
-        
-        .news-card:hover h3 {
-            color: #667eea;
+            letter-spacing: -0.01em;
         }
         
         .news-card p {
             color: #666;
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.5;
             margin-bottom: 20px;
         }
         
         .news-card-footer {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
         
         .engagement {
-            background: #f8f9fa;
-            padding: 8px 12px;
-            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #f5f5f5;
+            padding: 6px 10px;
+            border-radius: 6px;
             font-size: 12px;
             color: #666;
-            font-weight: 600;
+            font-weight: 500;
+        }
+        
+        .engagement-icon {
+            width: 12px;
+            height: 12px;
         }
         
         .read-more {
-            color: #667eea;
+            color: #1a1a1a;
             text-decoration: none;
-            font-weight: 600;
             font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: opacity 0.2s ease;
         }
         
         .read-more:hover {
-            color: #5a67d8;
+            opacity: 0.7;
         }
         
+        .read-more-icon {
+            width: 14px;
+            height: 14px;
+        }
+        
+        /* CTA */
         .cta {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: #1a1a1a;
             color: white;
-            padding: 40px;
-            border-radius: 20px;
+            padding: 48px;
+            border-radius: 16px;
             text-align: center;
-            margin: 40px 0;
+            margin: 64px 0;
         }
         
         .cta h3 {
-            font-size: 28px;
-            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
         }
         
         .cta p {
             font-size: 16px;
-            margin-bottom: 25px;
-            opacity: 0.9;
+            color: #999;
+            margin-bottom: 32px;
         }
         
         .cta-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background: white;
-            color: #667eea;
-            padding: 15px 30px;
-            border-radius: 25px;
+            color: #1a1a1a;
+            padding: 12px 24px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
         }
         
         .cta-button:hover {
-            background: #f8f9fa;
+            background: #f5f5f5;
         }
         
+        /* Footer */
         .footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 50px 0 30px;
-            margin-top: 50px;
+            background: white;
+            border-top: 1px solid #e5e5e5;
+            padding: 64px 0 32px;
+            margin-top: 80px;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 30px;
+            gap: 48px;
+            margin-bottom: 48px;
         }
         
         .footer-section h4 {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
         }
         
         .footer-section p {
-            color: #999;
+            color: #666;
+            font-size: 14px;
             line-height: 1.6;
         }
         
         .footer-links {
             list-style: none;
-            padding: 0;
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         .footer-links a {
-            color: #999;
+            color: #666;
             text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
         }
         
         .footer-links a:hover {
-            color: white;
+            color: #1a1a1a;
         }
         
         .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 30px;
+            border-top: 1px solid #e5e5e5;
+            padding-top: 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 16px;
         }
         
         .footer-bottom p {
             color: #999;
-            font-size: 14px;
+            font-size: 12px;
         }
         
         .last-update {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             color: #10b981;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 500;
         }
         
+        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 32px;
+                font-size: 40px;
+            }
+            
+            .hero p {
+                font-size: 18px;
             }
             
             .nav-links {
                 display: none;
-            }
-            
-            .content {
-                padding: 25px;
             }
             
             .news-grid {
@@ -417,8 +496,19 @@
             
             .footer-bottom {
                 flex-direction: column;
-                gap: 20px;
                 text-align: center;
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+            
+            .main {
+                padding: 48px 0;
+            }
+            
+            .section {
+                margin-bottom: 48px;
             }
         }
         
@@ -431,18 +521,21 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <div class="logo">
+                <a href="#" class="logo">
                     <div class="logo-icon">AI</div>
-                    <div>
+                    <div class="logo-text">
                         <h1>AI News</h1>
-                        <p>Actualización diaria</p>
                     </div>
-                </div>
+                </a>
                 
                 <div class="nav-links">
                     <a href="#inicio">Inicio</a>
                     <a href="benchmarks/index.html">Benchmarks</a>
-                    <div class="live-badge">🟢 En vivo</div>
+                    <a href="#archivo">Archivo</a>
+                    <div class="live-indicator">
+                        <div class="pulse"></div>
+                        <span>En vivo</span>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -456,127 +549,464 @@
                 
                 <div class="search-container">
                     <input type="text" class="search-input" placeholder="Buscar noticias..." id="searchInput">
+                    <div class="search-icon">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
                 </div>
                 
                 <div class="stats">
-                    <div class="stat">📊 20 noticias destacadas</div>
-                    <div class="stat">🕒 Actualizado hoy</div>
+                    <div class="stat">20 noticias destacadas</div>
+                    <div class="stat">Actualizado hace 2 horas</div>
                 </div>
                 
                 <div class="filter-tabs">
                     <button class="filter-tab active" data-filter="all">Todas</button>
                     <button class="filter-tab" data-filter="general">General</button>
-                    <button class="filter-tab" data-filter="tecnico">Técnico</button>
-                    <button class="filter-tab" data-filter="arte">Arte</button>
+                    <button class="filter-tab" data-filter="technical">Técnico</button>
+                    <button class="filter-tab" data-filter="art">Arte</button>
                 </div>
             </section>
 
-            <div class="content">
-                <section class="section" data-category="general">
-                    <div class="section-header">
-                        <div class="section-line blue"></div>
-                        <h2>General</h2>
-                        <span class="section-count">10 noticias</span>
-                    </div>
-                    
-                    <img src="cbebe1e3-3b0b-4e89-badf-3523bb0b3f52.png" alt="General" class="category-image">
-                    
-                    <div class="news-grid">
-                        <article class="news-card">
-                            <h3>Rumores: GPT‑5 llega en agosto con variantes Big, Medium y Nano</h3>
-                            <p>Un rumor viral sugiere que OpenAI lanzará GPT‑5 en agosto con tres tamaños (Big, Medium y Nano) y una versión open‑weight llamada Starfish.</p>
-                            <div class="news-card-footer">
-                                <div class="engagement">📈 3,802</div>
-                                <a href="#" class="read-more">Leer más →</a>
+            <!-- General Section -->
+            <section class="section" data-category="general">
+                <div class="section-header">
+                    <div class="section-icon general">🌐</div>
+                    <h2>General</h2>
+                    <span class="section-count">10 noticias</span>
+                </div>
+                
+                <div class="news-grid">
+                    <article class="news-card">
+                        <h3>OpenAI planea lanzar GPT-5 en agosto con variantes Big, Medium y Nano</h3>
+                        <p>OpenAI se prepara para lanzar GPT-5 a principios de agosto de 2025, tras retrasos para pruebas adicionales. El modelo incluirá tres variantes de diferentes tamaños y capacidades.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                3,802
                             </div>
-                        </article>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
 
-                        <article class="news-card">
-                            <h3>Microsoft prueba Copilot Appearance para chatbot con video y memoria</h3>
-                            <p>Microsoft experimenta con Copilot Appearance, una experiencia de asistente que genera expresiones faciales en tiempo real y recuerda el contexto.</p>
-                            <div class="news-card-footer">
-                                <div class="engagement">📈 1,802</div>
-                                <a href="#" class="read-more">Leer más →</a>
+                    <article class="news-card">
+                        <h3>OpenAI y Oracle firman contrato de $30 mil millones anuales</h3>
+                        <p>OpenAI y Oracle expandirán su alianza con 4.5 gigawatts adicionales de capacidad de centros de datos, prometiendo cientos de miles de millones en inversión.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                2,547
                             </div>
-                        </article>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
 
-                        <article class="news-card">
-                            <h3>Aeneas: IA de DeepMind que descifra inscripciones del Imperio Romano</h3>
-                            <p>DeepMind presentó Aeneas, un modelo que contextualiza inscripciones romanas comparando textos similares y acelerando décadas de trabajo arqueológico.</p>
-                            <div class="news-card-footer">
-                                <div class="engagement">📈 1,754</div>
-                                <a href="#" class="read-more">Leer más →</a>
+                    <article class="news-card">
+                        <h3>Microsoft contrata 24 ejecutivos de DeepMind de Google</h3>
+                        <p>Microsoft ha reforzado significativamente sus capacidades de IA contratando 24 especialistas del laboratorio de investigación DeepMind de Google, incluyendo a Amar Subramanya como nuevo VP de IA.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                2,234
                             </div>
-                        </article>
-                    </div>
-                </section>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
 
-                <section class="section" data-category="tecnico">
-                    <div class="section-header">
-                        <div class="section-line purple"></div>
-                        <h2>Técnico</h2>
-                        <span class="section-count">5 noticias</span>
-                    </div>
-                    
-                    <img src="d6a5dec9-6969-41e3-a775-209b4a46e45a.png" alt="Técnico" class="category-image">
-                    
-                    <div class="news-grid">
-                        <article class="news-card">
-                            <h3>Claude Code permite subagentes que trabajan en equipo</h3>
-                            <p>Anthropic anunció que Claude Code permite crear subagentes que actúan como arquitectos de software, revisores de código y QA de manera coordinada.</p>
-                            <div class="news-card-footer">
-                                <div class="engagement">📈 1,274</div>
-                                <a href="#" class="read-more">Leer más →</a>
+                    <article class="news-card">
+                        <h3>Meta invierte $14.3 mil millones en Scale AI</h3>
+                        <p>Meta realiza una inversión masiva en Scale AI, que posteriormente anuncia despidos de 200 empleados y 500 contratistas un mes después de la inversión.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                2,089
                             </div>
-                        </article>
-                    </div>
-                </section>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
 
-                <section class="section" data-category="arte">
-                    <div class="section-header">
-                        <div class="section-line pink"></div>
-                        <h2>Arte</h2>
-                        <span class="section-count">5 noticias</span>
-                    </div>
-                    
-                    <img src="be22cfba-33f9-44d5-8e04-e4b263edf3d7.png" alt="Arte" class="category-image">
-                    
-                    <div class="news-grid">
-                        <article class="news-card">
-                            <h3>Máquina de tatuajes robótica usa IA para crear diseños originales</h3>
-                            <p>Un proyecto de tatuaje robótico con IA permite que un robot diseñe y tatúe de forma autónoma, combinando creatividad y precisión.</p>
-                            <div class="news-card-footer">
-                                <div class="engagement">📈 411</div>
-                                <a href="#" class="read-more">Leer más →</a>
+                    <article class="news-card">
+                        <h3>Sam Altman advierte sobre una "crisis de fraude" con IA</h3>
+                        <p>El CEO de OpenAI alerta que el mundo podría estar al borde de una "crisis de fraude" debido a cómo la inteligencia artificial podría permitir a actores maliciosos engañar a las personas.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                1,876
                             </div>
-                        </article>
-                    </div>
-                </section>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
 
-                <section class="cta">
-                    <h3>¿Quieres ver más detalles técnicos?</h3>
-                    <p>Explora nuestros benchmarks actualizados de modelos de IA</p>
-                    <a href="benchmarks/index.html" class="cta-button">Ver Benchmarks</a>
-                </section>
-            </div>
+                    <article class="news-card">
+                        <h3>Meta construye el centro de datos de IA más grande del mundo</h3>
+                        <p>Meta anuncia "Prometheus", un centro de datos de IA del tamaño de Manhattan que será tan grande como Mumbai y entregará capacidades de superinteligencia.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                1,823
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <h3>OpenAI busca más financiación tras quemar $40 mil millones</h3>
+                        <p>Apenas meses después de completar una ronda de financiación de $40 mil millones, OpenAI está reabriendo los libros en busca de más dinero según reportes.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                1,654
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <h3>ChatGPT Web Agent genera advertencias de privacidad</h3>
+                        <p>El nuevo agente de ChatGPT puede navegar sitios web, leer emails y gestionar cuentas para usuarios, pero puede ser vulnerable a inyección de prompts.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                1,543
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <h3>A.R. Rahman se reúne con Sam Altman para proyecto secreto</h3>
+                        <p>El compositor mundialmente reconocido A.R. Rahman se reunió recientemente con el CEO de OpenAI Sam Altman para explorar cómo empoderar a los creadores indios mediante el uso de IA.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                1,234
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <h3>40+ investigadores de IA emiten advertencia conjunta</h3>
+                        <p>Más de 40 investigadores de OpenAI, Google DeepMind, Anthropic y Meta se unen para emitir una rara advertencia conjunta: la ventana para entender cómo funciona la IA se está cerrando.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                2,012
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Technical Section -->
+            <section class="section" data-category="technical">
+                <div class="section-header">
+                    <div class="section-icon technical">⚙️</div>
+                    <h2>Técnico</h2>
+                    <span class="section-count">5 noticias</span>
+                </div>
+                
+                <div class="news-grid">
+                    <article class="news-card">
+                        <h3>Anthropic lanza Claude Opus 4 y Sonnet 4</h3>
+                        <p>Anthropic presenta la próxima generación: Claude Opus 4 es su modelo más poderoso hasta ahora, y el mejor modelo de codificación del mundo.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                1,876
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <h3>Claude Code permite subagentes que trabajan en equipo</h3>
+                        <p>Los equipos de Anthropic usan Claude Code para flujos de trabajo de desarrollo, desde depuración hasta asistencia de código, con subagentes que actúan como arquitectos de software coordinados.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                1,432
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <h3>Aeneas: IA de DeepMind descifra inscripciones romanas</h3>
+                        <p>DeepMind presenta Aeneas, un modelo de IA que ayuda a historiadores a restaurar, fechar y contextualizar textos antiguos fragmentados más rápidamente.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                1,234
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <h3>DeepMind logra medalla de oro en Olimpiada de Matemáticas</h3>
+                        <p>La IA de DeepMind ha logrado un progreso notable en razonamiento matemático, ganando una medalla de oro en la Olimpiada Internacional de Matemáticas tras resolver problemas de nivel mundial.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                1,654
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <h3>Anthropic desarrolla agentes de auditoría de alineación</h3>
+                        <p>Anthropic presenta agentes de auditoría para probar problemas de desalineación en IA, desarrollados mientras probaban Claude Opus 4 para problemas de alineación.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                1,087
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Art Section -->
+            <section class="section" data-category="art">
+                <div class="section-header">
+                    <div class="section-icon art">🎨</div>
+                    <h2>Arte</h2>
+                    <span class="section-count">5 noticias</span>
+                </div>
+                
+                <div class="news-grid">
+                    <article class="news-card">
+                        <h3>Obra de arte de Messi generada por IA se vende por $1.8 millones</h3>
+                        <p>Refik Anadol convierte el gol icónico de Lionel Messi en arte digital generado por IA, vendido por 1.8 millones de dólares en una subasta de arte digital.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                934
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <h3>Robot humanoide Ai-Da pinta retrato del Rey Carlos III</h3>
+                        <p>Un robot humanoide de IA llamado Ai-Da ha pintado un retrato del Rey Carlos III. La obra fue recientemente exhibida en la ONU, marcando un hito en el arte robótico.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                876
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <h3>Google Photos añade herramientas gratuitas de IA para crear videos</h3>
+                        <p>Google Photos ahora ofrece herramientas gratuitas de IA para convertir imágenes fijas en videos cortos y estilos artísticos como anime o bocetos, con funciones Photo-to-Video y Remix.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                823
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <h3>Meta AI en WhatsApp tendrá modo de voz en tiempo real</h3>
+                        <p>Los desarrolladores de Meta están probando un nuevo modo de voz en tiempo real para Meta AI dentro de WhatsApp, que podría funcionar de manera similar al Modo Live de Gemini.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                756
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <h3>Samsung invierte $8M en startup de análisis de video con IA</h3>
+                        <p>Memories.ai, una startup especializada en análisis de video basado en IA, ha recaudado $8 millones en una ronda semilla liderada por Susa Ventures con participación de Samsung.</p>
+                        <div class="news-card-footer">
+                            <div class="engagement">
+                                <svg class="engagement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                634
+                            </div>
+                            <a href="#" class="read-more">
+                                Leer más
+                                <svg class="read-more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="cta">
+                <h3>¿Quieres ver más detalles técnicos?</h3>
+                <p>Explora nuestros benchmarks actualizados de modelos de IA</p>
+                <a href="benchmarks/index.html" class="cta-button">
+                    Ver Benchmarks
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </section>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <div class="logo">
-                        <div class="logo-icon">AI</div>
-                        <div>
-                            <h4>AI News</h4>
-                        </div>
-                    </div>
+                    <h4>AI News</h4>
                     <p>Tu fuente diaria de noticias sobre Inteligencia Artificial. Manténte al día con los últimos avances, investigaciones y desarrollos en el mundo de la IA.</p>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Enlaces rápidos</h4>
+                    <h4>Enlaces</h4>
                     <ul class="footer-links">
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="benchmarks/index.html">Benchmarks</a></li>
@@ -589,16 +1019,19 @@
                     <h4>Categorías</h4>
                     <ul class="footer-links">
                         <li><a href="#general">General</a></li>
-                        <li><a href="#tecnico">Técnico</a></li>
-                        <li><a href="#arte">Arte</a></li>
-                        <li><a href="#investigacion">Investigación</a></li>
+                        <li><a href="#technical">Técnico</a></li>
+                        <li><a href="#art">Arte</a></li>
+                        <li><a href="#research">Investigación</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>© 2025 AI News. Generado automáticamente el 25/07/2025.</p>
-                <div class="last-update">Última actualización: Hace 2 horas</div>
+                <div class="last-update">
+                    <div class="pulse"></div>
+                    <span>Última actualización: Hace 2 horas</span>
+                </div>
             </div>
         </div>
     </footer>
