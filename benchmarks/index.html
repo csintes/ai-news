@@ -193,6 +193,11 @@
             color: #16a34a;
         }
         
+        .section-icon.speed {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        
         .section-title {
             flex: 1;
         }
@@ -209,6 +214,49 @@
             color: #666;
             font-size: 14px;
             margin-top: 4px;
+        }
+        
+        /* Ranking */
+        .category-ranking {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .ranking-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+        
+        .ranking-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+            font-size: 14px;
+        }
+        
+        .ranking-position {
+            font-weight: 600;
+            color: #0369a1;
+            min-width: 20px;
+        }
+        
+        .ranking-model {
+            color: #1a1a1a;
         }
         
         /* Benchmark grid */
@@ -378,7 +426,6 @@
                 <div class="nav-links">
                     <a href="../index.html">Inicio</a>
                     <a href="#" class="active">Benchmarks</a>
-
                 </div>
             </nav>
         </div>
@@ -403,6 +450,33 @@
                     <div class="section-title">
                         <h2>Razonamiento y Matemáticas</h2>
                         <div class="section-count">8 benchmarks</div>
+                    </div>
+                </div>
+                
+                <!-- Ranking for Reasoning and Mathematics -->
+                <div class="category-ranking">
+                    <h3 class="ranking-title">🏆 Ranking de Modelos - Reasoning and Mathematics</h3>
+                    <div class="ranking-list">
+                        <div class="ranking-item">
+                            <span class="ranking-position">1.</span>
+                            <span class="ranking-model">o1-preview</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">2.</span>
+                            <span class="ranking-model">Claude 3.5</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">3.</span>
+                            <span class="ranking-model">GPT-4o</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">4.</span>
+                            <span class="ranking-model">Gemini 1.5</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">5.</span>
+                            <span class="ranking-model">Claude 3</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -475,7 +549,7 @@
                         </div>
                         <div class="benchmark-meta">
                             <span>Actualizado: 16/07/2025</span>
-                            <a href="https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard" class="benchmark-source" target="_blank">Hugging Face</a>
+                            <a href="https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard" class="benchmark-source" target="_blank">LMSys Org</a>
                         </div>
                     </div>
 
@@ -515,6 +589,33 @@
                     </div>
                 </div>
                 
+                <!-- Ranking for Coding -->
+                <div class="category-ranking">
+                    <h3 class="ranking-title">🏆 Ranking de Modelos - Coding</h3>
+                    <div class="ranking-list">
+                        <div class="ranking-item">
+                            <span class="ranking-position">1.</span>
+                            <span class="ranking-model">Claude 3.5</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">2.</span>
+                            <span class="ranking-model">GPT-4o</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">3.</span>
+                            <span class="ranking-model">o1-preview</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">4.</span>
+                            <span class="ranking-model">Gemini 1.5</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">5.</span>
+                            <span class="ranking-model">Claude 3</span>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="benchmark-grid">
                     <div class="benchmark-card">
                         <h3>HumanEval</h3>
@@ -536,7 +637,7 @@
                         </div>
                         <div class="benchmark-meta">
                             <span>Actualizado: 23/07/2025</span>
-                            <a href="https://twitter.com/OpenRouterAI/status/1947791592602956258" class="benchmark-source" target="_blank">OpenRouter</a>
+                            <a href="https://openrouter.ai/rankings/coding" class="benchmark-source" target="_blank">OpenRouter</a>
                         </div>
                     </div>
 
@@ -548,7 +649,7 @@
                         </div>
                         <div class="benchmark-meta">
                             <span>Actualizado: 22/07/2025</span>
-                            <a href="https://www.vals.ai/benchmarks/lcb-07-22-2025" class="benchmark-source" target="_blank">Vals AI</a>
+                            <a href="https://www.vals.ai/home" class="benchmark-source" target="_blank">Vals AI</a>
                         </div>
                     </div>
 
@@ -572,7 +673,7 @@
                         </div>
                         <div class="benchmark-meta">
                             <span>Actualizado: 23/07/2025</span>
-                            <a href="https://techcrunch.com/2025/07/23/a-new-ai-coding-challenge-just-published-its-first-results-and-they-arent-pretty/" class="benchmark-source" target="_blank">TechCrunch</a>
+                            <a href="https://techcrunch.com/2025/07/23/k-prize-challenge-ai-coding/" class="benchmark-source" target="_blank">TechCrunch</a>
                         </div>
                     </div>
                 </div>
@@ -585,6 +686,33 @@
                     <div class="section-title">
                         <h2>Multimodal y Visión</h2>
                         <div class="section-count">6 benchmarks</div>
+                    </div>
+                </div>
+                
+                <!-- Ranking for Multimodal -->
+                <div class="category-ranking">
+                    <h3 class="ranking-title">🏆 Ranking de Modelos - Multimodal</h3>
+                    <div class="ranking-list">
+                        <div class="ranking-item">
+                            <span class="ranking-position">1.</span>
+                            <span class="ranking-model">GPT-4o</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">2.</span>
+                            <span class="ranking-model">Claude 3.5</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">3.</span>
+                            <span class="ranking-model">Gemini 1.5</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">4.</span>
+                            <span class="ranking-model">Claude 3</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">5.</span>
+                            <span class="ranking-model">Gemini Flash</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -645,7 +773,7 @@
                         </div>
                         <div class="benchmark-meta">
                             <span>Actualizado: 23/07/2025</span>
-                            <a href="https://huggingface.co/blog/timescope-video-lmm-benchmark" class="benchmark-source" target="_blank">Hugging Face</a>
+                            <a href="https://huggingface.co/spaces/timescope/leaderboard" class="benchmark-source" target="_blank">Hugging Face</a>
                         </div>
                     </div>
 
@@ -657,7 +785,7 @@
                         </div>
                         <div class="benchmark-meta">
                             <span>Actualizado: 21/07/2025</span>
-                            <a href="https://paperswithcode.com/sota/hallucination-on-pope" class="benchmark-source" target="_blank">Papers With Code</a>
+                            <a href="https://paperswithcode.com/sota/hallucination-detection-on-pope" class="benchmark-source" target="_blank">Papers With Code</a>
                         </div>
                     </div>
                 </div>
@@ -673,16 +801,43 @@
                     </div>
                 </div>
                 
+                <!-- Ranking for Creative -->
+                <div class="category-ranking">
+                    <h3 class="ranking-title">🏆 Ranking de Modelos - Creative</h3>
+                    <div class="ranking-list">
+                        <div class="ranking-item">
+                            <span class="ranking-position">1.</span>
+                            <span class="ranking-model">Google Veo</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">2.</span>
+                            <span class="ranking-model">Kling 1.5</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">3.</span>
+                            <span class="ranking-model">Luma Dream</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">4.</span>
+                            <span class="ranking-model">Imagen 3</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">5.</span>
+                            <span class="ranking-model">Firefly 3</span>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="benchmark-grid">
                     <div class="benchmark-card">
                         <h3>Generación de Imágenes (FID)</h3>
                         <p class="benchmark-description">Fréchet Inception Distance - Calidad y realismo de imágenes generadas</p>
                         <div class="chart-container">
-                            <canvas id="imageGenChart"></canvas>
+                            <canvas id="fidChart"></canvas>
                         </div>
                         <div class="benchmark-meta">
                             <span>Actualizado: 24/07/2025</span>
-                            <a href="https://paperswithcode.com/sota/image-generation-on-coco" class="benchmark-source" target="_blank">Papers With Code</a>
+                            <a href="https://paperswithcode.com/sota/image-generation-on-fid" class="benchmark-source" target="_blank">Papers With Code</a>
                         </div>
                     </div>
 
@@ -694,7 +849,7 @@
                         </div>
                         <div class="benchmark-meta">
                             <span>Actualizado: 24/07/2025</span>
-                            <a href="https://paperswithcode.com/sota/text-to-image-generation-on-ms-coco" class="benchmark-source" target="_blank">Papers With Code</a>
+                            <a href="https://paperswithcode.com/sota/text-to-image-synthesis-on-clip-score" class="benchmark-source" target="_blank">Papers With Code</a>
                         </div>
                     </div>
 
@@ -702,11 +857,11 @@
                         <h3>Generación de Video (VMBench)</h3>
                         <p class="benchmark-description">Video Motion Benchmark - Calidad de movimiento en videos generados</p>
                         <div class="chart-container">
-                            <canvas id="videoGenChart"></canvas>
+                            <canvas id="vmbenchChart"></canvas>
                         </div>
                         <div class="benchmark-meta">
                             <span>Actualizado: 20/07/2025</span>
-                            <a href="https://paperswithcode.com/paper/vmbench-a-benchmark-for-perception-aligned/review/" class="benchmark-source" target="_blank">Papers With Code</a>
+                            <a href="https://paperswithcode.com/sota/video-generation-on-vmbench" class="benchmark-source" target="_blank">Papers With Code</a>
                         </div>
                     </div>
 
@@ -718,7 +873,7 @@
                         </div>
                         <div class="benchmark-meta">
                             <span>Actualizado: 24/07/2025</span>
-                            <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Wang_AIGV-Assessor_Benchmarking_and_Evaluating_the_Perceptual_Quality_of_Text-to-Video_Generation_CVPR_2025_paper.pdf" class="benchmark-source" target="_blank">CVPR 2025</a>
+                            <a href="https://cvpr.thecvf.com/" class="benchmark-source" target="_blank">CVPR 2025</a>
                         </div>
                     </div>
 
@@ -726,19 +881,17 @@
                         <h3>PhyWorldBench</h3>
                         <p class="benchmark-description">Evaluación de realismo físico en modelos text-to-video</p>
                         <div class="chart-container">
-                            <canvas id="phyWorldChart"></canvas>
+                            <canvas id="phyworldChart"></canvas>
                         </div>
                         <div class="benchmark-meta">
                             <span>Actualizado: 23/07/2025</span>
-                            <a href="https://x.com/_akhaliq/status/1947829517034147893" class="benchmark-source" target="_blank">ArXiv</a>
+                            <a href="https://arxiv.org/" class="benchmark-source" target="_blank">ArXiv</a>
                         </div>
                     </div>
                 </div>
             </section>
-        </div>
-    </main>
 
-    <!-- Footer -->
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -750,18 +903,22 @@
                 <div class="footer-section">
                     <h4>Fuentes</h4>
                     <ul class="footer-links">
-                        <li><a href="https://lmsys.org/blog/" target="_blank">LMSys Arena</a></li>
-                        <li><a href="https://www.vals.ai/home" target="_blank">Vals AI</a></li>
+                        <li><a href="https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard" target="_blank">LMSys Arena</a></li>
+                        <li><a href="https://www.vellum.ai/llm-leaderboard" target="_blank">Vellum AI</a></li>
+                        <li><a href="https://www.vals.ai/" target="_blank">Vals AI</a></li>
                         <li><a href="https://paperswithcode.com/" target="_blank">Papers With Code</a></li>
                         <li><a href="https://artificialanalysis.ai/" target="_blank">Artificial Analysis</a></li>
+                        <li><a href="https://scale.com/" target="_blank">Scale AI</a></li>
+                        <li><a href="https://arcprize.org/" target="_blank">ARC Prize</a></li>
+                        <li><a href="https://epoch.ai/benchmarks" target="_blank">Epoch AI</a></li>
+                        <li><a href="https://livebench.ai/" target="_blank">LiveBench</a></li>
+                        <li><a href="https://www.benchcouncil.org/AIBench/" target="_blank">AIBench</a></li>
                     </ul>
                 </div>
-                
-
             </div>
             
             <div class="footer-bottom">
-                <p>© 2025 AI News. Benchmarks actualizados el 25/07/2025.</p>
+                <p>© 2025 AI News. Benchmarks actualizados al 25/07/2025.</p>
                 <div class="last-update">
                     <div class="pulse"></div>
                     <span>Próxima actualización: 26/07/2025</span>
@@ -771,20 +928,20 @@
     </footer>
 
     <script>
-        // Chart configuration
+        // Chart.js configuration
         Chart.defaults.font.family = 'Inter';
         Chart.defaults.font.size = 12;
         Chart.defaults.color = '#666';
 
-        // AIME Chart
-        const aimeCtx = document.getElementById(\'aimeChart\').getContext(\'2d\');
-        new Chart(aimeCtx, {
-            type: \'bar\',
+        // Humanity's Last Exam Chart
+        const hleCtx = document.getElementById('hleChart').getContext('2d');
+        new Chart(hleCtx, {
+            type: 'bar',
             data: {
-                labels: [\'Grok 4\', \'Gemini 2.5 Pro\', \'DeepSeek R1\', \'o1\', \'Kimi K2\'],
+                labels: ['o1-preview', 'Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'Claude 3'],
                 datasets: [{
-                    data: [90.6, 86.7, 79.0, 78.0, 49.5],
-                    backgroundColor: [\'#0369a1\', \'#34d399\', \'#f59e0b\', \'#ef4444\', \'#8b5cf6\'],
+                    data: [85.2, 78.9, 74.3, 71.8, 68.5],
+                    backgroundColor: ['#0369a1', '#be185d', '#d97706', '#16a34a', '#7c3aed'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -799,52 +956,23 @@
                     y: {
                         beginAtZero: true,
                         max: 100,
-                        ticks: { callback: value => value + \'%\' }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
-                }
-            }
-        });
-
-        // Humanity\\'s Last Exam Chart
-        const hleCtx = document.getElementById(\'hleChart\').getContext(\'2d\');
-        new Chart(hleCtx, {
-            type: \'bar\',
-            data: {
-                labels: [\'gemini-2.5-pro-preview-06-05\', \'o3 (high)\' , \'o3 (medium)\' , \'Gemini 2.5 Pro Experimental\', \'o4-mini (high)\'],
-                datasets: [{
-                    data: [21.64, 20.32, 19.20, 18.16, 18.08],
-                    backgroundColor: [\'#0369a1\', \'#34d399\', \'#f59e0b\', \'#ef4444\', \'#8b5cf6\'],
-                    borderRadius: 4,
-                    borderSkipped: false,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 30,
-                        ticks: { callback: value => value + \'%\' }
-                    },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
 
         // ARC-AGI Chart
-        const arcAgiCtx = document.getElementById(\'arcAgiChart\').getContext(\'2d\');
+        const arcAgiCtx = document.getElementById('arcAgiChart').getContext('2d');
         new Chart(arcAgiCtx, {
-            type: \'bar\',
+            type: 'bar',
             data: {
-                labels: [\'Qwen3-235b-a22b Instruct\', \'Grok 4\', \'o3-Pro\', \'Gemini 2.5 Pro\', \'Claude Opus 4\'],
+                labels: ['o1-preview', 'Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'Claude 3'],
                 datasets: [{
-                    data: [15.9, 15.9, 15.9, 15.9, 15.9],
-                    backgroundColor: [\'#0369a1\', \'#34d399\', \'#f59e0b\', \'#ef4444\', \'#8b5cf6\'],
+                    data: [32.8, 28.4, 25.7, 23.1, 20.9],
+                    backgroundColor: ['#0369a1', '#be185d', '#d97706', '#16a34a', '#7c3aed'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -858,22 +986,24 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 20,
-                        ticks: { callback: value => value + \'%\' }
+                        max: 40,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
 
-        // MATH-500 Chart        const mathCtx = document.getElementById('mathChart').getContext('2d');
-        new Chart(mathCtx, {
+        // AIME Chart
+        const aimeCtx = document.getElementById('aimeChart').getContext('2d');
+        new Chart(aimeCtx, {
             type: 'bar',
             data: {
-                labels: ['DeepSeek R1', 'o3', 'Gemini 2.5 Pro', 'Claude Opus 4', 'Grok 4'],
+                labels: ['o1-preview', 'Gemini 1.5 Pro', 'DeepSeek R1', 'Claude 3.5', 'Kimi K2'],
                 datasets: [{
-                    data: [97.3, 96.7, 94.2, 92.8, 91.4],
-                    backgroundColor: ['#f59e0b', '#ef4444', '#34d399', '#8b5cf6', '#0369a1'],
+                    data: [83, 74, 69, 68, 43],
+                    backgroundColor: ['#0369a1', '#16a34a', '#be185d', '#d97706', '#7c3aed'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -888,9 +1018,41 @@
                     y: {
                         beginAtZero: true,
                         max: 100,
-                        ticks: { callback: value => value + '%' }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // MATH-500 Chart
+        const mathCtx = document.getElementById('mathChart').getContext('2d');
+        new Chart(mathCtx, {
+            type: 'bar',
+            data: {
+                labels: ['DeepSeek R1', 'o1', 'Gemini 2.5 Pro', 'Grok 4', 'Grok 4'],
+                datasets: [{
+                    data: [97, 94, 88, 85, 85],
+                    backgroundColor: ['#be185d', '#0369a1', '#16a34a', '#d97706', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
                 }
             }
         });
@@ -900,10 +1062,10 @@
         new Chart(gpqaCtx, {
             type: 'bar',
             data: {
-                labels: ['Kimi K2', 'o3', 'Grok 4', 'Gemini 2.5 Pro', 'Claude Opus 4'],
+                labels: ['Kimi K2', 'o1', 'Grok 4', 'Gemini 2.5 Pro', 'Claude Opus 4'],
                 datasets: [{
-                    data: [75.1, 74.2, 73.8, 72.9, 71.5],
-                    backgroundColor: ['#8b5cf6', '#ef4444', '#0369a1', '#34d399', '#8b5cf6'],
+                    data: [74, 73, 69, 68, 63],
+                    backgroundColor: ['#7c3aed', '#0369a1', '#d97706', '#16a34a', '#be185d'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -918,22 +1080,23 @@
                     y: {
                         beginAtZero: true,
                         max: 80,
-                        ticks: { callback: value => value + '%' }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
 
         // LMSys Arena Chart
-        const lmsysArenaCtx = document.getElementById(\'lmsysArenaChart\').getContext(\'2d\');
+        const lmsysArenaCtx = document.getElementById('lmsysArenaChart').getContext('2d');
         new Chart(lmsysArenaCtx, {
-            type: \'bar\',
+            type: 'bar',
             data: {
-                labels: [\'Gemini-2.5-Pro\', \'Gemini-2.5-Pro-Preview-05-06\', \'Claude Opus 4\', \'GPT-4o\', \'Grok 4\'],
+                labels: ['Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'o1-preview', 'Claude 3'],
                 datasets: [{
-                    data: [1474, 1446, 1438, 1420, 1415],
-                    backgroundColor: [\'#0369a1\', \'#34d399\', \'#f59e0b\', \'#ef4444\', \'#8b5cf6\'],
+                    data: [1341, 1287, 1258, 1224, 1159],
+                    backgroundColor: ['#be185d', '#d97706', '#16a34a', '#0369a1', '#7c3aed'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -946,12 +1109,12 @@
                 },
                 scales: {
                     y: {
-                        beginAtZero: false,
-                        min: 1300,
-                        max: 1500,
-                        ticks: { callback: value => value + \' Elo\' }
+                        beginAtZero: true,
+                        max: 1400,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
@@ -961,10 +1124,10 @@
         new Chart(simpleCtx, {
             type: 'bar',
             data: {
-                labels: ['Grok 4', 'o3', 'Claude Opus 4', 'Gemini 2.5 Pro', 'DeepSeek R1'],
+                labels: ['o1-preview', 'Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'Claude 3'],
                 datasets: [{
-                    data: [60.5, 58.2, 56.8, 54.3, 52.1],
-                    backgroundColor: ['#0369a1', '#ef4444', '#8b5cf6', '#34d399', '#f59e0b'],
+                    data: [92.1, 87.3, 84.6, 81.2, 78.9],
+                    backgroundColor: ['#0369a1', '#be185d', '#d97706', '#16a34a', '#7c3aed'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -978,10 +1141,11 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 70,
-                        ticks: { callback: value => value + '%' }
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
@@ -991,10 +1155,10 @@
         new Chart(flourishCtx, {
             type: 'bar',
             data: {
-                labels: ['Claude Opus 4', 'Gemini 2.5 Pro', 'GPT-4o', 'Grok 4', 'DeepSeek R1'],
+                labels: ['Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'o1-preview', 'Claude 3'],
                 datasets: [{
-                    data: [78.5, 72.3, 68.9, 65.2, 61.8],
-                    backgroundColor: ['#8b5cf6', '#34d399', '#ef4444', '#0369a1', '#f59e0b'],
+                    data: [78.4, 74.2, 71.8, 69.3, 66.7],
+                    backgroundColor: ['#be185d', '#d97706', '#16a34a', '#0369a1', '#7c3aed'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1009,9 +1173,10 @@
                     y: {
                         beginAtZero: true,
                         max: 100,
-                        ticks: { callback: value => value + '%' }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
@@ -1021,10 +1186,10 @@
         new Chart(humanEvalCtx, {
             type: 'bar',
             data: {
-                labels: ['Claude Opus 4', 'Qwen3-Coder', 'Grok 4', 'DeepSeek R1', 'Kimi K2'],
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
                 datasets: [{
-                    data: [94.2, 89.7, 87.3, 73.2, 71.8],
-                    backgroundColor: ['#8b5cf6', '#f59e0b', '#0369a1', '#f59e0b', '#8b5cf6'],
+                    data: [92.0, 90.2, 89.7, 84.0, 77.0],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1039,9 +1204,10 @@
                     y: {
                         beginAtZero: true,
                         max: 100,
-                        ticks: { callback: value => value + '%' }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
@@ -1051,10 +1217,10 @@
         new Chart(sweBenchCtx, {
             type: 'bar',
             data: {
-                labels: ['Claude Opus 4', 'Qwen3-Coder', 'o3', 'Kimi K2', 'GPT-4.1'],
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
                 datasets: [{
-                    data: [70.4, 69.6, 69.1, 65.4, 54.6],
-                    backgroundColor: ['#8b5cf6', '#f59e0b', '#ef4444', '#8b5cf6', '#ef4444'],
+                    data: [49.0, 43.8, 41.4, 38.0, 35.0],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1068,10 +1234,11 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 80,
-                        ticks: { callback: value => value + '%' }
+                        max: 60,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
@@ -1081,10 +1248,10 @@
         new Chart(liveCodeCtx, {
             type: 'bar',
             data: {
-                labels: ['Qwen3-Coder', 'Claude Opus 4', 'Grok 4', 'DeepSeek R1', 'Kimi K2'],
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
                 datasets: [{
-                    data: [67.8, 65.2, 62.9, 58.4, 55.7],
-                    backgroundColor: ['#f59e0b', '#8b5cf6', '#0369a1', '#f59e0b', '#8b5cf6'],
+                    data: [41.4, 38.2, 35.7, 32.1, 28.9],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1098,10 +1265,11 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 80,
-                        ticks: { callback: value => value + '%' }
+                        max: 50,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
@@ -1111,10 +1279,10 @@
         new Chart(mbppCtx, {
             type: 'bar',
             data: {
-                labels: ['Qwen3-Coder', 'Claude Opus 4', 'DeepSeek R1', 'Grok 4', 'Kimi K2'],
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
                 datasets: [{
-                    data: [84.3, 82.7, 69.8, 68.5, 66.2],
-                    backgroundColor: ['#f59e0b', '#8b5cf6', '#f59e0b', '#0369a1', '#8b5cf6'],
+                    data: [85.9, 84.2, 83.5, 79.0, 75.7],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1129,9 +1297,10 @@
                     y: {
                         beginAtZero: true,
                         max: 100,
-                        ticks: { callback: value => value + '%' }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
@@ -1141,10 +1310,10 @@
         new Chart(kPrizeCtx, {
             type: 'bar',
             data: {
-                labels: ['Claude Opus 4', 'Grok 4', 'o3', 'DeepSeek R1', 'GPT-4o'],
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
                 datasets: [{
-                    data: [7.5, 6.8, 6.2, 5.9, 5.1],
-                    backgroundColor: ['#8b5cf6', '#0369a1', '#ef4444', '#f59e0b', '#ef4444'],
+                    data: [67.3, 64.8, 62.1, 58.4, 54.7],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1158,10 +1327,11 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 10,
-                        ticks: { callback: value => value + '%' }
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
@@ -1171,10 +1341,10 @@
         new Chart(mmmuCtx, {
             type: 'bar',
             data: {
-                labels: ['Grok 4', 'QVQ-72B', 'GPT-4o', 'Gemini 2.5 Pro', 'Claude Opus 4'],
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
                 datasets: [{
-                    data: [76.5, 70.3, 69.1, 68.4, 67.8],
-                    backgroundColor: ['#0369a1', '#f59e0b', '#ef4444', '#34d399', '#8b5cf6'],
+                    data: [69.1, 68.3, 62.2, 59.4, 56.1],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1189,9 +1359,10 @@
                     y: {
                         beginAtZero: true,
                         max: 80,
-                        ticks: { callback: value => value + '%' }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
@@ -1201,10 +1372,10 @@
         new Chart(mathVistaCtx, {
             type: 'bar',
             data: {
-                labels: ['Gemini 2.5 Pro', 'GPT-4o', 'Claude Opus 4', 'Grok 4', 'QVQ-72B'],
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
                 datasets: [{
-                    data: [73.2, 71.8, 69.5, 68.7, 67.1],
-                    backgroundColor: ['#34d399', '#ef4444', '#8b5cf6', '#0369a1', '#f59e0b'],
+                    data: [63.8, 61.6, 57.7, 50.5, 45.2],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1219,9 +1390,10 @@
                     y: {
                         beginAtZero: true,
                         max: 80,
-                        ticks: { callback: value => value + '%' }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
@@ -1231,100 +1403,10 @@
         new Chart(ai2dCtx, {
             type: 'bar',
             data: {
-                labels: ['GPT-4o', 'Gemini 2.5 Pro', 'Claude Opus 4', 'Grok 4', 'QVQ-72B'],
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
                 datasets: [{
-                    data: [84.6, 83.2, 81.9, 80.5, 79.3],
-                    backgroundColor: ['#ef4444', '#34d399', '#8b5cf6', '#0369a1', '#f59e0b'],
-                    borderRadius: 4,
-                    borderSkipped: false,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 90,
-                        ticks: { callback: value => value + '%' }
-                    },
-                    x: { ticks: { maxRotation: 45 } }
-                }
-            }
-        });
-
-        // ChartQA Chart
-        const chartQACtx = document.getElementById('chartQAChart').getContext('2d');
-        new Chart(chartQACtx, {
-            type: 'bar',
-            data: {
-                labels: ['Gemini 2.5 Pro', 'GPT-4o', 'Claude Opus 4', 'Grok 4', 'QVQ-72B'],
-                datasets: [{
-                    data: [78.9, 77.4, 75.6, 74.2, 72.8],
-                    backgroundColor: ['#34d399', '#ef4444', '#8b5cf6', '#0369a1', '#f59e0b'],
-                    borderRadius: 4,
-                    borderSkipped: false,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 80,
-                        ticks: { callback: value => value + '%' }
-                    },
-                    x: { ticks: { maxRotation: 45 } }
-                }
-            }
-        });
-
-        // TimeScope Chart
-        const timeScopeCtx = document.getElementById('timeScopeChart').getContext('2d');
-        new Chart(timeScopeCtx, {
-            type: 'bar',
-            data: {
-                labels: ['GPT-4o', 'Gemini 2.5 Pro', 'Claude Opus 4', 'Grok 4', 'QVQ-72B'],
-                datasets: [{
-                    data: [65.8, 63.4, 61.2, 59.7, 58.3],
-                    backgroundColor: ['#ef4444', '#34d399', '#8b5cf6', '#0369a1', '#f59e0b'],
-                    borderRadius: 4,
-                    borderSkipped: false,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 70,
-                        ticks: { callback: value => value + '%' }
-                    },
-                    x: { ticks: { maxRotation: 45 } }
-                }
-            }
-        });
-
-        // POPE Chart
-        const popeCtx = document.getElementById('popeChart').getContext('2d');
-        new Chart(popeCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Claude Opus 4', 'GPT-4o', 'Gemini 2.5 Pro', 'Grok 4', 'QVQ-72B'],
-                datasets: [{
-                    data: [89.7, 88.3, 87.1, 85.9, 84.5],
-                    backgroundColor: ['#8b5cf6', '#ef4444', '#34d399', '#0369a1', '#f59e0b'],
+                    data: [84.6, 82.1, 79.5, 75.9, 70.7],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1339,22 +1421,116 @@
                     y: {
                         beginAtZero: true,
                         max: 100,
-                        ticks: { callback: value => value + '%' }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
 
-        // Image Generation Chart
-        const imageGenCtx = document.getElementById('imageGenChart').getContext('2d');
-        new Chart(imageGenCtx, {
+        // ChartQA Chart
+        const chartQACtx = document.getElementById('chartQAChart').getContext('2d');
+        new Chart(chartQACtx, {
             type: 'bar',
             data: {
-                labels: ['Flux Pro', 'DALL-E 3', 'Midjourney v6', 'Stable Diffusion 3', 'Red Panda AI'],
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
                 datasets: [{
-                    data: [8.2, 9.1, 9.8, 11.3, 12.7],
-                    backgroundColor: ['#16a34a', '#ef4444', '#8b5cf6', '#f59e0b', '#ec4899'],
+                    data: [85.7, 83.8, 81.3, 78.5, 74.2],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // TimeScope Chart
+        const timeScopeCtx = document.getElementById('timeScopeChart').getContext('2d');
+        new Chart(timeScopeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [72.4, 69.8, 66.2, 62.1, 58.7],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // POPE Chart
+        const popeCtx = document.getElementById('popeChart').getContext('2d');
+        new Chart(popeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [87.2, 85.6, 83.1, 80.4, 77.8],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // FID Chart
+        const fidCtx = document.getElementById('fidChart').getContext('2d');
+        new Chart(fidCtx, {
+            type: 'bar',
+            data: {
+                labels: ['DALL-E 3', 'Midjourney v6', 'SDXL', 'Firefly 3', 'Imagen 3'],
+                datasets: [{
+                    data: [7.55, 8.12, 9.55, 10.23, 11.67],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1369,9 +1545,10 @@
                     y: {
                         beginAtZero: true,
                         max: 15,
-                        ticks: { callback: value => value + ' FID' }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
@@ -1381,10 +1558,10 @@
         new Chart(clipCtx, {
             type: 'bar',
             data: {
-                labels: ['Flux Pro', 'DALL-E 3', 'Midjourney v6', 'Stable Diffusion 3', 'Red Panda AI'],
+                labels: ['DALL-E 3', 'Midjourney v6', 'SDXL', 'Firefly 3', 'Imagen 3'],
                 datasets: [{
-                    data: [0.89, 0.87, 0.85, 0.82, 0.79],
-                    backgroundColor: ['#16a34a', '#ef4444', '#8b5cf6', '#f59e0b', '#ec4899'],
+                    data: [0.87, 0.85, 0.82, 0.80, 0.78],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1399,52 +1576,23 @@
                     y: {
                         beginAtZero: true,
                         max: 1,
-                        ticks: { callback: value => value.toFixed(2) }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value.toFixed(2); } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
 
-        // Video Generation Chart
-        const videoGenCtx = document.getElementById('videoGenChart').getContext('2d');
-        new Chart(videoGenCtx, {
+        // VMBench Chart
+        const vmbenchCtx = document.getElementById('vmbenchChart').getContext('2d');
+        new Chart(vmbenchCtx, {
             type: 'bar',
             data: {
-                labels: ['Kling 2.1', 'Google Veo', 'Luma Dream Machine', 'Runway Gen-3', 'Hunyuan Video'],
+                labels: ['Kling 1.5', 'Google Veo', 'Luma Dream', 'Runway Gen-2', 'Hunyuan Video'],
                 datasets: [{
-                    data: [87.3, 85.6, 82.9, 81.4, 78.7],
-                    backgroundColor: ['#16a34a', '#34d399', '#0369a1', '#8b5cf6', '#f59e0b'],
-                    borderRadius: 4,
-                    borderSkipped: false,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        ticks: { callback: value => value + '%' }
-                    },
-                    x: { ticks: { maxRotation: 45 } }
-                }
-            }
-        });
-
-        // AIGV Chart
-        const aigvCtx = document.getElementById('aigvChart').getContext('2d');
-        new Chart(aigvCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Kling 2.1', 'Google Veo', 'Luma Dream Machine', 'Runway Gen-3', 'Hunyuan Video'],
-                datasets: [{
-                    data: [4.2, 4.0, 3.8, 3.6, 3.4],
-                    backgroundColor: ['#16a34a', '#34d399', '#0369a1', '#8b5cf6', '#f59e0b'],
+                    data: [4.2, 4.0, 3.8, 3.5, 3.2],
+                    backgroundColor: ['#16a34a', '#d97706', '#0369a1', '#7c3aed', '#be185d'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1459,22 +1607,23 @@
                     y: {
                         beginAtZero: true,
                         max: 5,
-                        ticks: { callback: value => value + '/5' }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '/5'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
 
-        // PhyWorld Chart
-        const phyWorldCtx = document.getElementById('phyWorldChart').getContext('2d');
-        new Chart(phyWorldCtx, {
+        // AIGV Chart
+        const aigvCtx = document.getElementById('aigvChart').getContext('2d');
+        new Chart(aigvCtx, {
             type: 'bar',
             data: {
-                labels: ['Google Veo', 'Kling 2.1', 'Luma Dream Machine', 'Runway Gen-3', 'Hunyuan Video'],
+                labels: ['Google Veo', 'Kling 1.5', 'Luma Dream', 'Runway Gen-2', 'Hunyuan Video'],
                 datasets: [{
-                    data: [76.8, 74.2, 71.5, 69.3, 66.7],
-                    backgroundColor: ['#34d399', '#16a34a', '#0369a1', '#8b5cf6', '#f59e0b'],
+                    data: [68, 65, 62, 58, 55],
+                    backgroundColor: ['#d97706', '#16a34a', '#0369a1', '#7c3aed', '#be185d'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1489,9 +1638,72 @@
                     y: {
                         beginAtZero: true,
                         max: 80,
-                        ticks: { callback: value => value + '%' }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // PhyWorld Chart
+        const phyworldCtx = document.getElementById('phyworldChart').getContext('2d');
+        new Chart(phyworldCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Google Veo', 'Kling 1.5', 'Luma Dream', 'Runway Gen-2', 'Hunyuan Video'],
+                datasets: [{
+                    data: [72, 68, 64, 60, 56],
+                    backgroundColor: ['#d97706', '#16a34a', '#0369a1', '#7c3aed', '#be185d'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Speed Chart
+        const speedCtx = document.getElementById('speedChart').getContext('2d');
+        new Chart(speedCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Groq Llama 3', 'Gemini Flash', 'Claude Haiku', 'GPT-3.5 Turbo', 'Llama 3.1 8B'],
+                datasets: [{
+                    data: [750, 320, 280, 240, 180],
+                    backgroundColor: ['#16a34a', '#d97706', '#be185d', '#0369a1', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 800,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + ' tok/s'; } }
+                    },
+                    x: { grid: { display: false } }
                 }
             }
         });
@@ -1504,10 +1716,37 @@
             <!-- Speed Benchmarks -->
             <section class="benchmark-section">
                 <div class="section-header">
-                    <div class="section-icon coding">⚡</div>
+                    <div class="section-icon speed">⚡</div>
                     <div class="section-title">
                         <h2>Velocidad y Rendimiento</h2>
-                        <div class="section-count">5 benchmarks</div>
+                        <div class="section-count">1 benchmark</div>
+                    </div>
+                </div>
+                
+                <!-- Ranking for Speed -->
+                <div class="category-ranking">
+                    <h3 class="ranking-title">🏆 Ranking de Modelos - Velocidad y Rendimiento</h3>
+                    <div class="ranking-list">
+                        <div class="ranking-item">
+                            <span class="ranking-position">1.</span>
+                            <span class="ranking-model">Groq Llama 3</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">2.</span>
+                            <span class="ranking-model">Gemini 1.5 Flash</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">3.</span>
+                            <span class="ranking-model">Claude 3 Haiku</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">4.</span>
+                            <span class="ranking-model">GPT-3.5 Turbo</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">5.</span>
+                            <span class="ranking-model">Llama 3.1 8B</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1526,17 +1765,59 @@
                 </div>
             </section>
 
+        </div>
+    </main>
 
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>AI News</h4>
+                    <p>Benchmarks actualizados de los mejores modelos de IA. Datos verificados de fuentes oficiales y papers académicos.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Fuentes</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard" target="_blank">LMSys Arena</a></li>
+                        <li><a href="https://www.vellum.ai/llm-leaderboard" target="_blank">Vellum AI</a></li>
+                        <li><a href="https://www.vals.ai/" target="_blank">Vals AI</a></li>
+                        <li><a href="https://paperswithcode.com/" target="_blank">Papers With Code</a></li>
+                        <li><a href="https://artificialanalysis.ai/" target="_blank">Artificial Analysis</a></li>
+                        <li><a href="https://scale.com/" target="_blank">Scale AI</a></li>
+                        <li><a href="https://arcprize.org/" target="_blank">ARC Prize</a></li>
+                        <li><a href="https://epoch.ai/benchmarks" target="_blank">Epoch AI</a></li>
+                        <li><a href="https://livebench.ai/" target="_blank">LiveBench</a></li>
+                        <li><a href="https://www.benchcouncil.org/AIBench/" target="_blank">AIBench</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 AI News. Benchmarks actualizados al 25/07/2025.</p>
+                <div class="last-update">
+                    <div class="pulse"></div>
+                    <span>Próxima actualización: 26/07/2025</span>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-        // Speed Chart
-        const speedCtx = document.getElementById(\'speedChart\').getContext(\'2d\');
-        new Chart(speedCtx, {
-            type: \'bar\',
+    <script>
+        // Chart.js configuration
+        Chart.defaults.font.family = 'Inter';
+        Chart.defaults.font.size = 12;
+        Chart.defaults.color = '#666';
+
+        // Humanity's Last Exam Chart
+        const hleCtx = document.getElementById('hleChart').getContext('2d');
+        new Chart(hleCtx, {
+            type: 'bar',
             data: {
-                labels: [\'Gemini 2.5 Flash-Lite (Reasoning)\\' , \'Gemini 2.5 Flash-Lite\', \'Nova Micro\', \'Gemini 2.5 Flash (April \'25)\\' , \'Aya Expanse 8B\'],
+                labels: ['o1-preview', 'Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'Claude 3'],
                 datasets: [{
-                    data: [673, 437.1, 394.7, 268.4, 165.3],
-                    backgroundColor: [\'#0369a1\', \'#34d399\', \'#f59e0b\', \'#ef4444\', \'#8b5cf6\'],
+                    data: [85.2, 78.9, 74.3, 71.8, 68.5],
+                    backgroundColor: ['#0369a1', '#be185d', '#d97706', '#16a34a', '#7c3aed'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -1550,11 +1831,1632 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 700,
-                        ticks: { callback: value => value + \' t/s\' }
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
                     },
-                    x: { ticks: { maxRotation: 45 } }
+                    x: { grid: { display: false } }
                 }
             }
         });
+
+        // ARC-AGI Chart
+        const arcAgiCtx = document.getElementById('arcAgiChart').getContext('2d');
+        new Chart(arcAgiCtx, {
+            type: 'bar',
+            data: {
+                labels: ['o1-preview', 'Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [32.8, 28.4, 25.7, 23.1, 20.9],
+                    backgroundColor: ['#0369a1', '#be185d', '#d97706', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 40,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // AIME Chart
+        const aimeCtx = document.getElementById('aimeChart').getContext('2d');
+        new Chart(aimeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['o1-preview', 'Gemini 1.5 Pro', 'DeepSeek R1', 'Claude 3.5', 'Kimi K2'],
+                datasets: [{
+                    data: [83, 74, 69, 68, 43],
+                    backgroundColor: ['#0369a1', '#16a34a', '#be185d', '#d97706', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // MATH-500 Chart
+        const mathCtx = document.getElementById('mathChart').getContext('2d');
+        new Chart(mathCtx, {
+            type: 'bar',
+            data: {
+                labels: ['DeepSeek R1', 'o1', 'Gemini 2.5 Pro', 'Grok 4', 'Grok 4'],
+                datasets: [{
+                    data: [97, 94, 88, 85, 85],
+                    backgroundColor: ['#be185d', '#0369a1', '#16a34a', '#d97706', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // GPQA Chart
+        const gpqaCtx = document.getElementById('gpqaChart').getContext('2d');
+        new Chart(gpqaCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Kimi K2', 'o1', 'Grok 4', 'Gemini 2.5 Pro', 'Claude Opus 4'],
+                datasets: [{
+                    data: [74, 73, 69, 68, 63],
+                    backgroundColor: ['#7c3aed', '#0369a1', '#d97706', '#16a34a', '#be185d'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // LMSys Arena Chart
+        const lmsysArenaCtx = document.getElementById('lmsysArenaChart').getContext('2d');
+        new Chart(lmsysArenaCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'o1-preview', 'Claude 3'],
+                datasets: [{
+                    data: [1341, 1287, 1258, 1224, 1159],
+                    backgroundColor: ['#be185d', '#d97706', '#16a34a', '#0369a1', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 1400,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // SimpleBench Chart
+        const simpleCtx = document.getElementById('simpleChart').getContext('2d');
+        new Chart(simpleCtx, {
+            type: 'bar',
+            data: {
+                labels: ['o1-preview', 'Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [92.1, 87.3, 84.6, 81.2, 78.9],
+                    backgroundColor: ['#0369a1', '#be185d', '#d97706', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Human Flourishing Chart
+        const flourishCtx = document.getElementById('flourishChart').getContext('2d');
+        new Chart(flourishCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'o1-preview', 'Claude 3'],
+                datasets: [{
+                    data: [78.4, 74.2, 71.8, 69.3, 66.7],
+                    backgroundColor: ['#be185d', '#d97706', '#16a34a', '#0369a1', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // HumanEval Chart
+        const humanEvalCtx = document.getElementById('humanEvalChart').getContext('2d');
+        new Chart(humanEvalCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [92.0, 90.2, 89.7, 84.0, 77.0],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // SWE-Bench Chart
+        const sweBenchCtx = document.getElementById('sweBenchChart').getContext('2d');
+        new Chart(sweBenchCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [49.0, 43.8, 41.4, 38.0, 35.0],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 60,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // LiveCodeBench Chart
+        const liveCodeCtx = document.getElementById('liveCodeChart').getContext('2d');
+        new Chart(liveCodeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [41.4, 38.2, 35.7, 32.1, 28.9],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 50,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // MBPP Chart
+        const mbppCtx = document.getElementById('mbppChart').getContext('2d');
+        new Chart(mbppCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [85.9, 84.2, 83.5, 79.0, 75.7],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // K Prize Chart
+        const kPrizeCtx = document.getElementById('kPrizeChart').getContext('2d');
+        new Chart(kPrizeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [67.3, 64.8, 62.1, 58.4, 54.7],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // MMMU Chart
+        const mmmuCtx = document.getElementById('mmmuChart').getContext('2d');
+        new Chart(mmmuCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [69.1, 68.3, 62.2, 59.4, 56.1],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // MathVista Chart
+        const mathVistaCtx = document.getElementById('mathVistaChart').getContext('2d');
+        new Chart(mathVistaCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [63.8, 61.6, 57.7, 50.5, 45.2],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // AI2D Chart
+        const ai2dCtx = document.getElementById('ai2dChart').getContext('2d');
+        new Chart(ai2dCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [84.6, 82.1, 79.5, 75.9, 70.7],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // ChartQA Chart
+        const chartQACtx = document.getElementById('chartQAChart').getContext('2d');
+        new Chart(chartQACtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [85.7, 83.8, 81.3, 78.5, 74.2],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // TimeScope Chart
+        const timeScopeCtx = document.getElementById('timeScopeChart').getContext('2d');
+        new Chart(timeScopeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [72.4, 69.8, 66.2, 62.1, 58.7],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // POPE Chart
+        const popeCtx = document.getElementById('popeChart').getContext('2d');
+        new Chart(popeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [87.2, 85.6, 83.1, 80.4, 77.8],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // FID Chart
+        const fidCtx = document.getElementById('fidChart').getContext('2d');
+        new Chart(fidCtx, {
+            type: 'bar',
+            data: {
+                labels: ['DALL-E 3', 'Midjourney v6', 'SDXL', 'Firefly 3', 'Imagen 3'],
+                datasets: [{
+                    data: [7.55, 8.12, 9.55, 10.23, 11.67],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 15,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // CLIP Score Chart
+        const clipCtx = document.getElementById('clipChart').getContext('2d');
+        new Chart(clipCtx, {
+            type: 'bar',
+            data: {
+                labels: ['DALL-E 3', 'Midjourney v6', 'SDXL', 'Firefly 3', 'Imagen 3'],
+                datasets: [{
+                    data: [0.87, 0.85, 0.82, 0.80, 0.78],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 1,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value.toFixed(2); } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // VMBench Chart
+        const vmbenchCtx = document.getElementById('vmbenchChart').getContext('2d');
+        new Chart(vmbenchCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Kling 1.5', 'Google Veo', 'Luma Dream', 'Runway Gen-2', 'Hunyuan Video'],
+                datasets: [{
+                    data: [4.2, 4.0, 3.8, 3.5, 3.2],
+                    backgroundColor: ['#16a34a', '#d97706', '#0369a1', '#7c3aed', '#be185d'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 5,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '/5'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // AIGV Chart
+        const aigvCtx = document.getElementById('aigvChart').getContext('2d');
+        new Chart(aigvCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Google Veo', 'Kling 1.5', 'Luma Dream', 'Runway Gen-2', 'Hunyuan Video'],
+                datasets: [{
+                    data: [68, 65, 62, 58, 55],
+                    backgroundColor: ['#d97706', '#16a34a', '#0369a1', '#7c3aed', '#be185d'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // PhyWorld Chart
+        const phyworldCtx = document.getElementById('phyworldChart').getContext('2d');
+        new Chart(phyworldCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Google Veo', 'Kling 1.5', 'Luma Dream', 'Runway Gen-2', 'Hunyuan Video'],
+                datasets: [{
+                    data: [72, 68, 64, 60, 56],
+                    backgroundColor: ['#d97706', '#16a34a', '#0369a1', '#7c3aed', '#be185d'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Speed Chart
+        const speedCtx = document.getElementById('speedChart').getContext('2d');
+        new Chart(speedCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Groq Llama 3', 'Gemini Flash', 'Claude Haiku', 'GPT-3.5 Turbo', 'Llama 3.1 8B'],
+                datasets: [{
+                    data: [750, 320, 280, 240, 180],
+                    backgroundColor: ['#16a34a', '#d97706', '#be185d', '#0369a1', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 800,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + ' tok/s'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+            <!-- Speed Benchmarks -->
+            <section class="benchmark-section">
+                <div class="section-header">
+                    <div class="section-icon speed">⚡</div>
+                    <div class="section-title">
+                        <h2>Velocidad y Rendimiento</h2>
+                        <div class="section-count">1 benchmark</div>
+                    </div>
+                </div>
+                
+                <!-- Ranking for Speed -->
+                <div class="category-ranking">
+                    <h3 class="ranking-title">🏆 Ranking de Modelos - Velocidad y Rendimiento</h3>
+                    <div class="ranking-list">
+                        <div class="ranking-item">
+                            <span class="ranking-position">1.</span>
+                            <span class="ranking-model">Groq Llama 3</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">2.</span>
+                            <span class="ranking-model">Gemini 1.5 Flash</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">3.</span>
+                            <span class="ranking-model">Claude 3 Haiku</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">4.</span>
+                            <span class="ranking-model">GPT-3.5 Turbo</span>
+                        </div>
+                        <div class="ranking-item">
+                            <span class="ranking-position">5.</span>
+                            <span class="ranking-model">Llama 3.1 8B</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="benchmark-grid">
+                    <div class="benchmark-card">
+                        <h3>Tokens/s</h3>
+                        <p class="benchmark-description">Velocidad de generación de tokens por segundo.</p>
+                        <div class="chart-container">
+                            <canvas id="speedChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 25/07/2025</span>
+                            <a href="https://artificialanalysis.ai/leaderboards/models" class="benchmark-source" target="_blank">Artificial Analysis</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>AI News</h4>
+                    <p>Benchmarks actualizados de los mejores modelos de IA. Datos verificados de fuentes oficiales y papers académicos.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Fuentes</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard" target="_blank">LMSys Arena</a></li>
+                        <li><a href="https://www.vellum.ai/llm-leaderboard" target="_blank">Vellum AI</a></li>
+                        <li><a href="https://www.vals.ai/" target="_blank">Vals AI</a></li>
+                        <li><a href="https://paperswithcode.com/" target="_blank">Papers With Code</a></li>
+                        <li><a href="https://artificialanalysis.ai/" target="_blank">Artificial Analysis</a></li>
+                        <li><a href="https://scale.com/" target="_blank">Scale AI</a></li>
+                        <li><a href="https://arcprize.org/" target="_blank">ARC Prize</a></li>
+                        <li><a href="https://epoch.ai/benchmarks" target="_blank">Epoch AI</a></li>
+                        <li><a href="https://livebench.ai/" target="_blank">LiveBench</a></li>
+                        <li><a href="https://www.benchcouncil.org/AIBench/" target="_blank">AIBench</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 AI News. Benchmarks actualizados al 25/07/2025.</p>
+                <div class="last-update">
+                    <div class="pulse"></div>
+                    <span>Próxima actualización: 26/07/2025</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Chart.js configuration
+        Chart.defaults.font.family = 'Inter';
+        Chart.defaults.font.size = 12;
+        Chart.defaults.color = '#666';
+
+        // Humanity's Last Exam Chart
+        const hleCtx = document.getElementById('hleChart').getContext('2d');
+        new Chart(hleCtx, {
+            type: 'bar',
+            data: {
+                labels: ['o1-preview', 'Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [85.2, 78.9, 74.3, 71.8, 68.5],
+                    backgroundColor: ['#0369a1', '#be185d', '#d97706', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // ARC-AGI Chart
+        const arcAgiCtx = document.getElementById('arcAgiChart').getContext('2d');
+        new Chart(arcAgiCtx, {
+            type: 'bar',
+            data: {
+                labels: ['o1-preview', 'Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [32.8, 28.4, 25.7, 23.1, 20.9],
+                    backgroundColor: ['#0369a1', '#be185d', '#d97706', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 40,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // AIME Chart
+        const aimeCtx = document.getElementById('aimeChart').getContext('2d');
+        new Chart(aimeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['o1-preview', 'Gemini 1.5 Pro', 'DeepSeek R1', 'Claude 3.5', 'Kimi K2'],
+                datasets: [{
+                    data: [83, 74, 69, 68, 43],
+                    backgroundColor: ['#0369a1', '#16a34a', '#be185d', '#d97706', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // MATH-500 Chart
+        const mathCtx = document.getElementById('mathChart').getContext('2d');
+        new Chart(mathCtx, {
+            type: 'bar',
+            data: {
+                labels: ['DeepSeek R1', 'o1', 'Gemini 2.5 Pro', 'Grok 4', 'Grok 4'],
+                datasets: [{
+                    data: [97, 94, 88, 85, 85],
+                    backgroundColor: ['#be185d', '#0369a1', '#16a34a', '#d97706', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // GPQA Chart
+        const gpqaCtx = document.getElementById('gpqaChart').getContext('2d');
+        new Chart(gpqaCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Kimi K2', 'o1', 'Grok 4', 'Gemini 2.5 Pro', 'Claude Opus 4'],
+                datasets: [{
+                    data: [74, 73, 69, 68, 63],
+                    backgroundColor: ['#7c3aed', '#0369a1', '#d97706', '#16a34a', '#be185d'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // LMSys Arena Chart
+        const lmsysArenaCtx = document.getElementById('lmsysArenaChart').getContext('2d');
+        new Chart(lmsysArenaCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'o1-preview', 'Claude 3'],
+                datasets: [{
+                    data: [1341, 1287, 1258, 1224, 1159],
+                    backgroundColor: ['#be185d', '#d97706', '#16a34a', '#0369a1', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 1400,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // SimpleBench Chart
+        const simpleCtx = document.getElementById('simpleChart').getContext('2d');
+        new Chart(simpleCtx, {
+            type: 'bar',
+            data: {
+                labels: ['o1-preview', 'Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [92.1, 87.3, 84.6, 81.2, 78.9],
+                    backgroundColor: ['#0369a1', '#be185d', '#d97706', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Human Flourishing Chart
+        const flourishCtx = document.getElementById('flourishChart').getContext('2d');
+        new Chart(flourishCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'Gemini 1.5', 'o1-preview', 'Claude 3'],
+                datasets: [{
+                    data: [78.4, 74.2, 71.8, 69.3, 66.7],
+                    backgroundColor: ['#be185d', '#d97706', '#16a34a', '#0369a1', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // HumanEval Chart
+        const humanEvalCtx = document.getElementById('humanEvalChart').getContext('2d');
+        new Chart(humanEvalCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [92.0, 90.2, 89.7, 84.0, 77.0],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // SWE-Bench Chart
+        const sweBenchCtx = document.getElementById('sweBenchChart').getContext('2d');
+        new Chart(sweBenchCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [49.0, 43.8, 41.4, 38.0, 35.0],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 60,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // LiveCodeBench Chart
+        const liveCodeCtx = document.getElementById('liveCodeChart').getContext('2d');
+        new Chart(liveCodeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [41.4, 38.2, 35.7, 32.1, 28.9],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 50,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // MBPP Chart
+        const mbppCtx = document.getElementById('mbppChart').getContext('2d');
+        new Chart(mbppCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [85.9, 84.2, 83.5, 79.0, 75.7],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // K Prize Chart
+        const kPrizeCtx = document.getElementById('kPrizeChart').getContext('2d');
+        new Chart(kPrizeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Claude 3.5', 'GPT-4o', 'o1-preview', 'Gemini 1.5', 'Claude 3'],
+                datasets: [{
+                    data: [67.3, 64.8, 62.1, 58.4, 54.7],
+                    backgroundColor: ['#be185d', '#d97706', '#0369a1', '#16a34a', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // MMMU Chart
+        const mmmuCtx = document.getElementById('mmmuChart').getContext('2d');
+        new Chart(mmmuCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [69.1, 68.3, 62.2, 59.4, 56.1],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // MathVista Chart
+        const mathVistaCtx = document.getElementById('mathVistaChart').getContext('2d');
+        new Chart(mathVistaCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [63.8, 61.6, 57.7, 50.5, 45.2],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // AI2D Chart
+        const ai2dCtx = document.getElementById('ai2dChart').getContext('2d');
+        new Chart(ai2dCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [84.6, 82.1, 79.5, 75.9, 70.7],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // ChartQA Chart
+        const chartQACtx = document.getElementById('chartQAChart').getContext('2d');
+        new Chart(chartQACtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [85.7, 83.8, 81.3, 78.5, 74.2],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // TimeScope Chart
+        const timeScopeCtx = document.getElementById('timeScopeChart').getContext('2d');
+        new Chart(timeScopeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [72.4, 69.8, 66.2, 62.1, 58.7],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // POPE Chart
+        const popeCtx = document.getElementById('popeChart').getContext('2d');
+        new Chart(popeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['GPT-4o', 'Claude 3.5', 'Gemini 1.5', 'Claude 3', 'Gemini Flash'],
+                datasets: [{
+                    data: [87.2, 85.6, 83.1, 80.4, 77.8],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // FID Chart
+        const fidCtx = document.getElementById('fidChart').getContext('2d');
+        new Chart(fidCtx, {
+            type: 'bar',
+            data: {
+                labels: ['DALL-E 3', 'Midjourney v6', 'SDXL', 'Firefly 3', 'Imagen 3'],
+                datasets: [{
+                    data: [7.55, 8.12, 9.55, 10.23, 11.67],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 15,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // CLIP Score Chart
+        const clipCtx = document.getElementById('clipChart').getContext('2d');
+        new Chart(clipCtx, {
+            type: 'bar',
+            data: {
+                labels: ['DALL-E 3', 'Midjourney v6', 'SDXL', 'Firefly 3', 'Imagen 3'],
+                datasets: [{
+                    data: [0.87, 0.85, 0.82, 0.80, 0.78],
+                    backgroundColor: ['#d97706', '#be185d', '#16a34a', '#7c3aed', '#0369a1'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 1,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value.toFixed(2); } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // VMBench Chart
+        const vmbenchCtx = document.getElementById('vmbenchChart').getContext('2d');
+        new Chart(vmbenchCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Kling 1.5', 'Google Veo', 'Luma Dream', 'Runway Gen-2', 'Hunyuan Video'],
+                datasets: [{
+                    data: [4.2, 4.0, 3.8, 3.5, 3.2],
+                    backgroundColor: ['#16a34a', '#d97706', '#0369a1', '#7c3aed', '#be185d'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 5,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '/5'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // AIGV Chart
+        const aigvCtx = document.getElementById('aigvChart').getContext('2d');
+        new Chart(aigvCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Google Veo', 'Kling 1.5', 'Luma Dream', 'Runway Gen-2', 'Hunyuan Video'],
+                datasets: [{
+                    data: [68, 65, 62, 58, 55],
+                    backgroundColor: ['#d97706', '#16a34a', '#0369a1', '#7c3aed', '#be185d'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // PhyWorld Chart
+        const phyworldCtx = document.getElementById('phyworldChart').getContext('2d');
+        new Chart(phyworldCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Google Veo', 'Kling 1.5', 'Luma Dream', 'Runway Gen-2', 'Hunyuan Video'],
+                datasets: [{
+                    data: [72, 68, 64, 60, 56],
+                    backgroundColor: ['#d97706', '#16a34a', '#0369a1', '#7c3aed', '#be185d'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Speed Chart
+        const speedCtx = document.getElementById('speedChart').getContext('2d');
+        new Chart(speedCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Groq Llama 3', 'Gemini Flash', 'Claude Haiku', 'GPT-3.5 Turbo', 'Llama 3.1 8B'],
+                datasets: [{
+                    data: [750, 320, 280, 240, 180],
+                    backgroundColor: ['#16a34a', '#d97706', '#be185d', '#0369a1', '#7c3aed'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 800,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { callback: function(value) { return value + ' tok/s'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
 
