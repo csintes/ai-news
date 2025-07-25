@@ -402,11 +402,35 @@
                     <div class="section-icon reasoning">🧠</div>
                     <div class="section-title">
                         <h2>Razonamiento y Matemáticas</h2>
-                        <div class="section-count">6 benchmarks</div>
+                        <div class="section-count">8 benchmarks</div>
                     </div>
                 </div>
                 
                 <div class="benchmark-grid">
+                    <div class="benchmark-card">
+                        <h3>Humanity's Last Exam</h3>
+                        <p class="benchmark-description">Evaluación de modelos de IA en el límite del conocimiento humano.</p>
+                        <div class="chart-container">
+                            <canvas id="hleChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 23/06/2025</span>
+                            <a href="https://scale.com/leaderboard/humanitys_last_exam" class="benchmark-source" target="_blank">Scale AI</a>
+                        </div>
+                    </div>
+
+                    <div class="benchmark-card">
+                        <h3>ARC-AGI</h3>
+                        <p class="benchmark-description">Mide el progreso hacia la inteligencia general artificial.</p>
+                        <div class="chart-container">
+                            <canvas id="arcAgiChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 25/07/2025</span>
+                            <a href="https://arcprize.org/leaderboard" class="benchmark-source" target="_blank">ARC Prize</a>
+                        </div>
+                    </div>
+
                     <div class="benchmark-card">
                         <h3>AIME 2025</h3>
                         <p class="benchmark-description">American Invitational Mathematics Examination - Problemas de matemáticas de nivel competitivo</p>
@@ -445,13 +469,13 @@
 
                     <div class="benchmark-card">
                         <h3>LMSys Arena</h3>
-                        <p class="benchmark-description">Evaluación humana de modelos de lenguaje en conversaciones reales</p>
+                        <p class="benchmark-description">Evaluación humana de modelos de lenguaje en conversaciones reales.</p>
                         <div class="chart-container">
-                            <canvas id="lmsysChart"></canvas>
+                            <canvas id="lmsysArenaChart"></canvas>
                         </div>
                         <div class="benchmark-meta">
-                            <span>Actualizado: 25/07/2025</span>
-                            <a href="https://lmsys.org/blog/" class="benchmark-source" target="_blank">LMSys Org</a>
+                            <span>Actualizado: 16/07/2025</span>
+                            <a href="https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard" class="benchmark-source" target="_blank">Hugging Face</a>
                         </div>
                     </div>
 
@@ -753,14 +777,14 @@
         Chart.defaults.color = '#666';
 
         // AIME Chart
-        const aimeCtx = document.getElementById('aimeChart').getContext('2d');
+        const aimeCtx = document.getElementById(\'aimeChart\').getContext(\'2d\');
         new Chart(aimeCtx, {
-            type: 'bar',
+            type: \'bar\',
             data: {
-                labels: ['Grok 4', 'Gemini 2.5 Pro', 'DeepSeek R1', 'o1', 'Kimi K2'],
+                labels: [\'Grok 4\', \'Gemini 2.5 Pro\', \'DeepSeek R1\', \'o1\', \'Kimi K2\'],
                 datasets: [{
                     data: [90.6, 86.7, 79.0, 78.0, 49.5],
-                    backgroundColor: ['#0369a1', '#34d399', '#f59e0b', '#ef4444', '#8b5cf6'],
+                    backgroundColor: [\'#0369a1\', \'#34d399\', \'#f59e0b\', \'#ef4444\', \'#8b5cf6\'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -775,15 +799,74 @@
                     y: {
                         beginAtZero: true,
                         max: 100,
-                        ticks: { callback: value => value + '%' }
+                        ticks: { callback: value => value + \'%\' }
                     },
                     x: { ticks: { maxRotation: 45 } }
                 }
             }
         });
 
-        // MATH-500 Chart
-        const mathCtx = document.getElementById('mathChart').getContext('2d');
+        // Humanity\\'s Last Exam Chart
+        const hleCtx = document.getElementById(\'hleChart\').getContext(\'2d\');
+        new Chart(hleCtx, {
+            type: \'bar\',
+            data: {
+                labels: [\'gemini-2.5-pro-preview-06-05\', \'o3 (high)\' , \'o3 (medium)\' , \'Gemini 2.5 Pro Experimental\', \'o4-mini (high)\'],
+                datasets: [{
+                    data: [21.64, 20.32, 19.20, 18.16, 18.08],
+                    backgroundColor: [\'#0369a1\', \'#34d399\', \'#f59e0b\', \'#ef4444\', \'#8b5cf6\'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 30,
+                        ticks: { callback: value => value + \'%\' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // ARC-AGI Chart
+        const arcAgiCtx = document.getElementById(\'arcAgiChart\').getContext(\'2d\');
+        new Chart(arcAgiCtx, {
+            type: \'bar\',
+            data: {
+                labels: [\'Qwen3-235b-a22b Instruct\', \'Grok 4\', \'o3-Pro\', \'Gemini 2.5 Pro\', \'Claude Opus 4\'],
+                datasets: [{
+                    data: [15.9, 15.9, 15.9, 15.9, 15.9],
+                    backgroundColor: [\'#0369a1\', \'#34d399\', \'#f59e0b\', \'#ef4444\', \'#8b5cf6\'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 20,
+                        ticks: { callback: value => value + \'%\' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
+
+        // MATH-500 Chart        const mathCtx = document.getElementById('mathChart').getContext('2d');
         new Chart(mathCtx, {
             type: 'bar',
             data: {
@@ -843,14 +926,14 @@
         });
 
         // LMSys Arena Chart
-        const lmsysCtx = document.getElementById('lmsysChart').getContext('2d');
-        new Chart(lmsysCtx, {
-            type: 'bar',
+        const lmsysArenaCtx = document.getElementById(\'lmsysArenaChart\').getContext(\'2d\');
+        new Chart(lmsysArenaCtx, {
+            type: \'bar\',
             data: {
-                labels: ['Gemini 2.5 Pro', 'Claude Opus 4', 'GPT-4o', 'Grok 4', 'Kimi K2'],
+                labels: [\'Gemini-2.5-Pro\', \'Gemini-2.5-Pro-Preview-05-06\', \'Claude Opus 4\', \'GPT-4o\', \'Grok 4\'],
                 datasets: [{
-                    data: [1342, 1338, 1329, 1325, 1318],
-                    backgroundColor: ['#34d399', '#8b5cf6', '#ef4444', '#0369a1', '#8b5cf6'],
+                    data: [1474, 1446, 1438, 1420, 1415],
+                    backgroundColor: [\'#0369a1\', \'#34d399\', \'#f59e0b\', \'#ef4444\', \'#8b5cf6\'],
                     borderRadius: 4,
                     borderSkipped: false,
                 }]
@@ -865,8 +948,8 @@
                     y: {
                         beginAtZero: false,
                         min: 1300,
-                        max: 1350,
-                        ticks: { callback: value => value + ' Elo' }
+                        max: 1500,
+                        ticks: { callback: value => value + \' Elo\' }
                     },
                     x: { ticks: { maxRotation: 45 } }
                 }
@@ -1415,4 +1498,63 @@
     </script>
 </body>
 </html>
+
+
+
+            <!-- Speed Benchmarks -->
+            <section class="benchmark-section">
+                <div class="section-header">
+                    <div class="section-icon coding">⚡</div>
+                    <div class="section-title">
+                        <h2>Velocidad y Rendimiento</h2>
+                        <div class="section-count">5 benchmarks</div>
+                    </div>
+                </div>
+                
+                <div class="benchmark-grid">
+                    <div class="benchmark-card">
+                        <h3>Tokens/s</h3>
+                        <p class="benchmark-description">Velocidad de generación de tokens por segundo.</p>
+                        <div class="chart-container">
+                            <canvas id="speedChart"></canvas>
+                        </div>
+                        <div class="benchmark-meta">
+                            <span>Actualizado: 25/07/2025</span>
+                            <a href="https://artificialanalysis.ai/leaderboards/models" class="benchmark-source" target="_blank">Artificial Analysis</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+        // Speed Chart
+        const speedCtx = document.getElementById(\'speedChart\').getContext(\'2d\');
+        new Chart(speedCtx, {
+            type: \'bar\',
+            data: {
+                labels: [\'Gemini 2.5 Flash-Lite (Reasoning)\\' , \'Gemini 2.5 Flash-Lite\', \'Nova Micro\', \'Gemini 2.5 Flash (April \'25)\\' , \'Aya Expanse 8B\'],
+                datasets: [{
+                    data: [673, 437.1, 394.7, 268.4, 165.3],
+                    backgroundColor: [\'#0369a1\', \'#34d399\', \'#f59e0b\', \'#ef4444\', \'#8b5cf6\'],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 700,
+                        ticks: { callback: value => value + \' t/s\' }
+                    },
+                    x: { ticks: { maxRotation: 45 } }
+                }
+            }
+        });
 
